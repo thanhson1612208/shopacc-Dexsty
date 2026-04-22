@@ -650,6 +650,1011 @@
             <h2 class="section-title">Sản Phẩm Nổi Bật</h2>
 
             <div class="tabs">
+                <button class="tab-btn active" onclick="filterProducts(event, 'all')">Tất Cả</button>
+                <button class="tab-btn" onclick="filterProducts(event, 'lienquan')">Liên Quân</button>
+                <button class="tab-btn" onclick="filterProducts(event, 'bloxfruit')">Blox Fruit</button>
+                <button class="tab-btn" onclick="filterProducts(event, 'ugphone')">UGPhone</button>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>Cần Hỗ Trợ?</h2>
+            <p>Liên hệ với chúng tôi qua các kênh dưới đây</p>
+            <div class="contact-buttons">
+                <a href="https://zalo.me/0123456789" target="_blank">💬 Zalo</a>
+                <a href="https://t.me/dexstyshop" target="_blank">📱 Telegram</a>
+                <a href="mailto:support@dexsty.shop">📧 Email</a>
+                <button class="btn btn-secondary" onclick="openContactModal()">📞 Gọi Điện</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Về Dexsty Shop</h3>
+                    <ul>
+                        <li><a href="#">Giới Thiệu</a></li>
+                        <li><a href="#">Chính Sách</a></li>
+                        <li><a href="#">Điều Khoản</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Hỗ Trợ</h3>
+                    <ul>
+                        <li><a href="#">Hướng Dẫn Mua</a></li>
+                        <li><a href="#">Câu Hỏi Thường Gặp</a></li>
+                        <li><a href="#">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kênh Liên Hệ</h3>
+                    <ul>
+                        <li><a href="#">Zalo: 0123456789</a></li>
+                        <li><a href="#">Telegram: @dexstyshop</a></li>
+                        <li><a href="#">Email: support@dexsty.shop</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dexsty Shop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Đăng Nhập</h2>
+                <button class="close-btn" onclick="closeLoginModal()">&times;</button>
+            </div>
+            <div id="loginAlert" class="alert"></div>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Mật Khẩu</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn-submit">Đăng Nhập</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Liên Hệ Hỗ Trợ</h2>
+                <button class="close-btn" onclick="closeContactModal()">&times;</button>
+            </div>
+            <div id="contactAlert" class="alert"></div>
+            <form onsubmit="handleContact(event)">
+                <div class="form-group">
+                    <label>Tên Của Bạn</label>
+                    <input type="text" id="contactName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="contactEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Số Điện Thoại</label>
+                    <input type="tel" id="contactPhone" required>
+                </div>
+                <div class="form-group">
+                    <label>Tin Nhắn</label>
+                    <textarea id="contactMessage" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Gửi Tin Nhắn</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Purchase Modal -->
+    <div class="modal" id="purchaseModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mua Tài Khoản</h2>
+                <button class="close-btn" onclick="closePurchaseModal()">&times;</button>
+            </div>
+            <div id="purchaseAlert" class="alert"></div>
+            <form onsubmit="handlePurchase(event)">
+                <div class="form-group">
+                    <label>Tên Sản Phẩm</label>
+                    <input type="text" id="purchaseProduct" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Giá</label>
+                    <input type="text" id="purchasePrice" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Tên Của Bạn</label>
+                    <input type="text" id="purchaseName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="purchaseEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Số Điện Thoại</label>
+                    <input type="tel" id="purchasePhone" required>
+                </div>
+                <div class="form-group">
+                    <label>Phương Thức Thanh Toán</label>
+                    <input type="text" placeholder="VD: Chuyển khoản, Ví điện tử, v.v." id="purchasePayment" required>
+                </div>
+                <button type="submit" class="btn-submit">Xác Nhận Mua</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FIREBASE CONFIG -->
+    <script>
+        // GLOBAL VARIABLES
+        let currentFilter = 'all';
+        let currentUser = null;
+        let selectedProduct = null;
+        let db = null;
+        let auth = null;
+
+        // PRODUCTS DATA
+        const products = [
+            {
+                id: 1,
+                name: "Liên Quân - Tài Khoản Pro",
+                game: "lienquan",
+                price: 150000,
+                discount: 20,
+                icon: "⚔️",
+                badge: "HOT",
+                remaining: 5,
+                sold: 125
+            },
+            {
+                id: 2,
+                name: "Blox Fruit - Level 500",
+                game: "bloxfruit",
+                price: 200000,
+                discount: 15,
+                icon: "🍎",
+                badge: "NEW",
+                remaining: 3,
+                sold: 89
+            },
+            {
+                id: 3,
+                name: "UGPhone - Tài Khoản VIP",
+                game: "ugphone",
+                price: 100000,
+                discount: 10,
+                icon: "📱",
+                badge: "",
+                remaining: 10,
+                sold: 200
+            },
+            {
+                id: 4,
+                name: "Liên Quân - Tài Khoản Đầu",
+                game: "lienquan",
+                price: 250000,
+                discount: 25,
+                icon: "⚔️",
+                badge: "HOT",
+                remaining: 2,
+                sold: 45
+            },
+            {
+                id: 5,
+                name: "Blox Fruit - Fruit Rare",
+                game: "bloxfruit",
+                price: 300000,
+                discount: 30,
+                icon: "🍎",
+                badge: "BEST SELLER",
+                remaining: 1,
+                sold: 156
+            },
+            {
+                id: 6,
+                name: "UGPhone - Tài Khoản Thường",
+                game: "ugphone",
+                price: 50000,
+                discount: 5,
+                icon: "📱",
+                badge: "",
+                remaining: 20,
+                sold: 450
+            },
+            {
+                id: 7,
+                name: "Liên Quân - Tài Khoản Mới",
+                game: "lienquan",
+                price: 80000,
+                discount: 10,
+                icon: "⚔️",
+                badge: "NEW",
+                remaining: 15,
+                sold: 78
+            },
+            {
+                id: 8,
+                name: "Blox Fruit - Starter Pack",
+                game: "bloxfruit",
+                price: 120000,
+                discount: 20,
+                icon: "🍎",
+                badge: "",
+                remaining: 8,
+                sold: 234
+            }
+        ];
+
+        // RENDER PRODUCTS
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            const filtered = currentFilter === 'all' 
+                ? products 
+                : products.filter(p => p.game === currentFilter);
+
+            filtered.forEach(product => {
+                const discountedPrice = Math.floor(product.price * (1 - product.discount / 100));
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-image">
+                        ${product.icon}
+                        ${product.badge ? `<div class="badge ${product.badge.toLowerCase().replace(' ', '-')}">${product.badge}</div>` : ''}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">${product.name}</div>
+                        <div class="product-game">${product.game === 'lienquan' ? 'Liên Quân' : product.game === 'bloxfruit' ? 'Blox Fruit' : 'UGPhone'}</div>
+                        <div class="product-stats">
+                            <span>Còn: ${product.remaining}</span>
+                            <span>Đã bán: ${product.sold}</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">${discountedPrice.toLocaleString('vi-VN')}đ</span>
+                            ${product.discount > 0 ? `<span class="discount">-${product.discount}%</span>` : ''}
+                        </div>
+                        <button class="btn-buy" onclick="openPurchaseModal(${product.id})">Mua Ngay</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // FILTER PRODUCTS
+        function filterProducts(event, filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderProducts();
+        }
+
+        // MODAL FUNCTIONS
+        function openLoginModal() {
+            document.getElementById('loginModal').classList.add('show');
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').classList.remove('show');
+            document.getElementById('loginEmail').value = '';
+            document.getElementById('loginPassword').value = '';
+            document.getElementById('loginAlert').classList.remove('show');
+        }
+
+        function openContactModal() {
+            document.getElementById('contactModal').classList.add('show');
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.remove('show');
+            document.getElementById('contactName').value = '';
+            document.getElementById('contactEmail').value = '';
+            document.getElementById('contactPhone').value = '';
+            document.getElementById('contactMessage').value = '';
+            document.getElementById('contactAlert').classList.remove('show');
+        }
+
+        function openPurchaseModal(productId) {
+            selectedProduct = products.find(p => p.id === productId);
+            const discountedPrice = Math.floor(selectedProduct.price * (1 - selectedProduct.discount / 100));
+            document.getElementById('purchaseProduct').value = selectedProduct.name;
+            document.getElementById('purchasePrice').value = discountedPrice.toLocaleString('vi-VN') + 'đ';
+            document.getElementById('purchaseModal').classList.add('show');
+        }
+
+        function closePurchaseModal() {
+            document.getElementById('purchaseModal').classList.remove('show');
+            document.getElementById('purchaseName').value = '';
+            document.getElementById('purchaseEmail').value = '';
+            document.getElementById('purchasePhone').value = '';
+            document.getElementById('purchasePayment').value = '';
+            document.getElementById('purchaseAlert').classList.remove('show');
+        }
+
+        // CLOSE MODAL WHEN CLICKING OUTSIDE
+        window.onclick = function(event) {
+            const loginModal = document.getElementById('loginModal');
+            const contactModal = document.getElementById('contactModal');
+            const purchaseModal = document.getElementById('purchaseModal');
+
+            if (event.target === loginModal) loginModal.classList.remove('show');
+            if (event.target === contactModal) contactModal.classList.remove('show');
+            if (event.target === purchaseModal) purchaseModal.classList.remove('show');
+        };
+
+        // HANDLE LOGIN
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const alertDiv = document.getElementById('loginAlert');
+
+            if (!email || !password) {
+                alertDiv.innerHTML = '✗ Vui lòng điền đầy đủ thông tin!';
+                alertDiv.classList.add('error');
+                alertDiv.classList.add('show');
+                return;
+            }
+
+            alertDiv.innerHTML = '<div class="loading"></div> Đang đăng nhập...';
+            alertDiv.classList.add('show');
+            alertDiv.classList.remove('error');
+
+            // Simulate login (không có Firebase)
+            setTimeout(() => {
+                currentUser = { email: email };
+                alertDiv.innerHTML = '✓ Đăng nhập thành công!';
+                alertDiv.classList.add('success');
+                alertDiv.classList.remove('error');
+
+                setTimeout(() => {
+                    closeLoginModal();
+                }, 1500);
+            }, 1000);
+        }
+
+        // HANDLE CONTACT
+        function handleContact(event) {
+            event.preventDefault();
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const phone = document.getElementById('contactPhone').value;
+            const message = document.getElementById('contactMessage').value;
+            const alertDiv = document.getElementById('contactAlert');
+
+            if (!name || !email || !phone || !message) {
+                alertDiv.innerHTML = '✗ Vui lòng điền đầy đủ thông tin!';
+                alertDiv.classList.add('error');
+                alertDiv.classList.add('show');
+                return;
+            }
+
+            alertDiv.innerHTML = '<div class="loading"></div> Đang gửi...';
+            alertDiv.classList.add('show');
+            alertDiv.classList.remove('error');
+
+            // Simulate sending (không có Firebase)
+            setTimeout(() => {
+                alertDiv.innerHTML = '✓ Tin nhắn đã được gửi thành công!';
+                alertDiv.classList.add('success');
+                alertDiv.classList.remove('error');
+
+                document.getElementById('contactName').value = '';
+                document.getElementById('contactEmail').value = '';
+                document.getElementById('contactPhone').value = '';
+                document.getElementById('contactMessage').value = '';
+
+                setTimeout(() => {
+                    closeContactModal();
+                }, 1500);
+            }, 1000);
+        }
+
+        // HANDLE PURCHASE
+        function handlePurchase(event) {
+            event.preventDefault();
+            const name = document.getElementById('purchaseName').value;
+            const email = document.getElementById('purchaseEmail').value;
+            const phone = document.getElementById('purchasePhone').value;
+            const payment = document.getElementById('purchasePayment').value;
+            const alertDiv = document.getElementById('purchaseAlert');
+
+            if (!name || !email || !phone || !payment) {
+                alertDiv.innerHTML = '✗ Vui lòng điền đầy đủ thông tin!';
+                alertDiv.classList.add('error');
+                alertDiv.classList.add('show');
+                return;
+            }
+
+            alertDiv.innerHTML = '<div class="loading"></div> Đang xử lý đơn hàng...';
+            alertDiv.classList.add('show');
+            alertDiv.classList.remove('error');
+
+            // Simulate purchase (không có Firebase)
+            setTimeout(() => {
+                alertDiv.innerHTML = '✓ Đơn hàng đã được tạo! Chúng tôi sẽ liên hệ với bạn sớm.';
+                alertDiv.classList.add('success');
+                alertDiv.classList.remove('error');
+
+                document.getElementById('purchaseName').value = '';
+                document.getElementById('purchaseEmail').value = '';
+                document.getElementById('purchasePhone').value = '';
+                document.getElementById('purchasePayment').value = '';
+
+                setTimeout(() => {
+                    closePurchaseModal();
+                }, 2000);
+            }, 1000);
+        }
+
+        // INITIALIZE
+        window.addEventListener('load', () => {
+            renderProducts();
+        });
+    </script>
+</body>
+</html>
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light);
+            transform: translateY(-2px);
+        }
+
+        /* TRUST INDICATORS */
+        .trust-section {
+            background: white;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .trust-item h3 {
+            color: var(--secondary);
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .trust-item p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* PRODUCTS SECTION */
+        .products-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--border);
+            background: white;
+            color: var(--primary);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .tab-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .badge.hot {
+            background: #ff4444;
+        }
+
+        .badge.new {
+            background: #4CAF50;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .product-game {
+            display: inline-block;
+            background: var(--light);
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .product-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .discount {
+            background: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .btn-buy {
+            width: 100%;
+            padding: 12px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-buy:hover {
+            background-color: #e55a2b;
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            background: var(--primary);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-buttons a {
+            background: white;
+            color: var(--primary);
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .contact-buttons a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            color: #999;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            color: var(--primary);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 5px rgba(15, 52, 96, 0.3);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #e55a2b;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* LOADING & SUCCESS */
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                🎮 <span>Dexsty</span> Shop
+            </div>
+            <nav>
+                <a href="#products">Sản Phẩm</a>
+                <a href="#contact">Liên Hệ</a>
+                <button class="btn-login" onclick="openLoginModal()">Đăng Nhập</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>Bán Tài Khoản Game Uy Tín & Giá Rẻ</h1>
+            <p>Liên Quân • Blox Fruit • UGPhone - Hàng Chính Hãng, Giá Tốt Nhất</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Mua Ngay</button>
+                <button class="btn btn-secondary" onclick="openContactModal()">Liên Hệ Hỗ Trợ</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST SECTION -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <h3>10K+</h3>
+                    <p>Giao Dịch Thành Công</p>
+                </div>
+                <div class="trust-item">
+                    <h3>4.9/5</h3>
+                    <p>Đánh Giá Từ Khách Hàng</p>
+                </div>
+                <div class="trust-item">
+                    <h3>24/7</h3>
+                    <p>Hỗ Trợ Khách Hàng</p>
+                </div>
+                <div class="trust-item">
+                    <h3>100%</h3>
+                    <p>Thanh Toán An Toàn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Sản Phẩm Nổi Bật</h2>
+
+            <div class="tabs">
                 <button class="tab-btn active" onclick="filterProducts('all')">Tất Cả</button>
                 <button class="tab-btn" onclick="filterProducts('lienquan')">Liên Quân</button>
                 <button class="tab-btn" onclick="filterProducts('bloxfruit')">Blox Fruit</button>
