@@ -178,277 +178,336 @@
         .product-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all 0.3s; position: relative; }
         .product-card:hover { transform: translateY(-4px); border-color: rgba(0,212,255,0.3); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
         .card-img { height: 150px; display: flex; align-items: center; justify-content: center; font-size: 50px; position: relative; overflow: hidden; }
-        .card-img-lienquan { background: linear-gradient(135deg,#1a0533,#3d0b6b,#6b1ff1); }
-        .card-img-bloxfruit { background: linear-gradient(135deg,#051a33,#0b3d6b,#1f6bf1); }
-        .card-img-ugphone { background: linear-gradient(135deg,#1a3305,#3d6b0b,#6bf11f); }
-        .card-img-photo { width: 100%; height: 100%; object-fit: cover; }
-        .card-badge { position: absolute; top: 10px; left: 10px; padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; z-index: 2; text-transform: uppercase; }
-        .badge-hot { background: var(--danger); color: white; }
-        .badge-new { background: var(--cyan); color: #050a10; }
-        .badge-best { background: var(--yellow); color: #050a10; }
-        .stock-dot { position: absolute; top: 10px; right: 10px; width: 8px; height: 8px; border-radius: 50%; z-index: 2; }
-        .stock-high { background: var(--green); box-shadow: 0 0 8px var(--green); }
-        .stock-low { background: var(--orange); box-shadow: 0 0 8px var(--orange); }
-        .stock-out { background: var(--danger); box-shadow: 0 0 8px var(--danger); }
-        .card-body { padding: 16px; }
-        .card-game-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px; display: inline-block; padding: 2px 6px; border-radius: 4px; }
-        .tag-bloxfruit { background: rgba(0,212,255,0.1); color: var(--cyan); }
-        .tag-lienquan { background: rgba(155,93,255,0.1); color: var(--purple); }
-        .tag-ugphone { background: rgba(0,255,136,0.1); color: var(--green); }
-        .card-title { font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .card-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 12px; }
-        .card-price-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-        .card-price { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; color: var(--orange); }
-        .card-original { font-size: 12px; color: var(--muted); text-decoration: line-through; margin-left: 6px; }
-        .card-discount { background: rgba(255,107,43,0.1); color: var(--orange); font-size: 11px; font-weight: 700; padding: 2px 5px; border-radius: 4px; }
-        .btn-buy { width: 100%; background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 10px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: 'Barlow', sans-serif; }
-        .btn-buy:hover:not(:disabled) { background: var(--cyan); color: #050a10; border-color: var(--cyan); }
-        .btn-buy:disabled { opacity: 0.5; cursor: not-allowed; }
+        .card-img-lienquan { background: linear-gradient(135deg,#1a0533,#3d0b6b,#6b1fff); }
+        .card-img-bloxfruit { background: linear-gradient(135deg,#0a2000,#1a4a00,#2d7a00); }
+        .card-img-ugphone { background: linear-gradient(135deg,#001833,#003266,#0055b3); }
+        .card-img::after { content:''; position:absolute; bottom:0; left:0; right:0; height:50px; background:linear-gradient(to top,var(--card),transparent); }
+        .card-badge { position:absolute; top:8px; left:8px; z-index:2; padding:3px 8px; border-radius:4px; font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+        .badge-hot { background:var(--danger); color:white; }
+        .badge-new { background:var(--green); color:#051a0e; }
+        .badge-best { background:var(--yellow); color:#1a1000; }
+        .stock-dot { position:absolute; top:8px; right:8px; z-index:2; width:7px; height:7px; border-radius:50%; }
+        .stock-high { background:var(--green); box-shadow:0 0 8px var(--green); }
+        .stock-low { background:var(--orange); box-shadow:0 0 8px var(--orange); animation:blink 1s infinite; }
+        .stock-out { background:var(--danger); }
+        .card-body { padding: 14px; }
+        .card-game-tag { display:inline-block; font-size:9px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:2px 7px; border-radius:3px; margin-bottom:6px; }
+        .tag-lienquan { background:rgba(155,93,255,0.15); color:var(--purple); border:1px solid rgba(155,93,255,0.25); }
+        .tag-bloxfruit { background:rgba(0,255,136,0.1); color:var(--green); border:1px solid rgba(0,255,136,0.2); }
+        .tag-ugphone { background:rgba(0,212,255,0.1); color:var(--cyan); border:1px solid rgba(0,212,255,0.2); }
+        .card-title { font-family:'Barlow Condensed',sans-serif; font-size:16px; font-weight:600; margin-bottom:8px; color:var(--text); line-height:1.2; }
+        .card-meta { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); padding:8px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin-bottom:12px; }
+        .card-price-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+        .card-price { font-family:'Rajdhani',sans-serif; font-size:22px; font-weight:700; color:var(--orange); }
+        .card-original { font-size:12px; color:var(--muted); text-decoration:line-through; margin-left:5px; }
+        .card-discount { background:rgba(255,107,43,0.15); color:var(--orange); border:1px solid rgba(255,107,43,0.25); padding:2px 7px; border-radius:4px; font-size:10px; font-weight:700; }
+        .btn-buy { width:100%; padding:10px; background:linear-gradient(135deg,var(--orange),#c84400); color:white; border:none; border-radius:7px; font-weight:700; font-size:13px; cursor:pointer; transition:all 0.2s; font-family:'Barlow',sans-serif; }
+        .btn-buy:hover { transform:translateY(-1px); box-shadow:0 6px 18px rgba(255,107,43,0.35); }
+        .btn-buy:disabled { background:var(--bg3); color:var(--muted); cursor:not-allowed; transform:none; box-shadow:none; }
+        .card-img-photo { width:100%; height:150px; object-fit:cover; display:block; position:relative; z-index:1; transition:transform 0.4s ease; }
+        .product-card:hover .card-img-photo { transform:scale(1.05); }
 
         /* ── FEATURES ── */
-        .features-section { padding: 64px 16px; background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .features-inner { max-width: 1280px; margin: 0 auto; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
-        .feature-card { background: var(--bg); border: 1px solid var(--border); padding: 24px; border-radius: 16px; transition: all 0.3s; }
-        .feature-card:hover { border-color: var(--cyan); transform: translateY(-5px); }
-        .feature-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px; }
-        .fi-cyan { background: rgba(0,212,255,0.1); color: var(--cyan); }
-        .fi-green { background: rgba(0,255,136,0.1); color: var(--green); }
-        .fi-orange { background: rgba(255,107,43,0.1); color: var(--orange); }
-        .fi-purple { background: rgba(155,93,255,0.1); color: var(--purple); }
-        .feature-card h3 { font-family: 'Rajdhani', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-        .feature-card p { font-size: 14px; color: var(--muted); }
+        .features-section { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:50px 16px; }
+        .features-inner { max-width:1280px; margin:0 auto; }
+        .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+        .feature-card { background:var(--bg3); border:1px solid var(--border); border-radius:12px; padding:24px 20px; transition:border-color 0.2s; }
+        .feature-card:hover { border-color:rgba(0,212,255,0.3); }
+        .feature-icon { width:40px; height:40px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:14px; }
+        .fi-cyan { background:rgba(0,212,255,0.1); } .fi-orange { background:rgba(255,107,43,0.1); }
+        .fi-green { background:rgba(0,255,136,0.1); } .fi-purple { background:rgba(155,93,255,0.1); }
+        .feature-card h3 { font-family:'Rajdhani',sans-serif; font-size:18px; font-weight:700; margin-bottom:7px; }
+        .feature-card p { font-size:12px; color:var(--muted); line-height:1.6; }
 
         /* ── CONTACT ── */
-        .contact-section { padding: 64px 16px; text-align: center; max-width: 800px; margin: 0 auto; }
-        .contact-section h2 { font-family: 'Rajdhani', sans-serif; font-size: 36px; font-weight: 700; margin-bottom: 12px; }
-        .contact-section p { color: var(--muted); margin-bottom: 32px; }
-        .contact-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-        .contact-link { display: flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 600; transition: all 0.2s; font-size: 14px; }
-        .cl-zalo { background: #0068ff; color: white; }
-        .cl-telegram { background: #229ed9; color: white; }
-        .cl-fb { background: #1877f2; color: white; }
-        .cl-contact { background: var(--bg3); border: 1px solid var(--border); color: var(--text); cursor: pointer; font-family: 'Barlow', sans-serif; }
-        .contact-link:hover { transform: scale(1.05); filter: brightness(1.1); }
+        .contact-section { padding:56px 16px; max-width:1280px; margin:0 auto; text-align:center; }
+        .contact-section h2 { font-family:'Rajdhani',sans-serif; font-size:32px; font-weight:700; margin-bottom:10px; }
+        .contact-section p { color:var(--muted); margin-bottom:28px; }
+        .contact-links { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+        .contact-link { display:flex; align-items:center; gap:7px; padding:11px 22px; border-radius:8px; text-decoration:none; font-weight:600; font-size:13px; border:1px solid var(--border); color:var(--text); background:var(--bg3); transition:all 0.2s; }
+        .contact-link:hover { transform:translateY(-2px); }
+        .cl-zalo:hover { border-color:#0068FF; color:#0068FF; background:rgba(0,104,255,0.07); }
+        .cl-telegram:hover { border-color:#2CA5E0; color:#2CA5E0; background:rgba(44,165,224,0.07); }
+        .cl-fb:hover { border-color:#1877F2; color:#1877F2; background:rgba(24,119,242,0.07); }
+        .cl-contact:hover { border-color:var(--orange); color:var(--orange); background:rgba(255,107,43,0.07); }
 
         /* ── FOOTER ── */
-        footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 64px 16px 32px; }
-        .footer-inner { max-width: 1280px; margin: 0 auto; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
-        .footer-brand p { color: var(--muted); font-size: 14px; margin-top: 16px; max-width: 300px; }
-        .footer-col h4 { font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 20px; color: var(--text); }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 10px; }
-        .footer-col ul li a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
-        .footer-col ul li a:hover { color: var(--cyan); }
-        .footer-bottom { border-top: 1px solid var(--border); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; color: var(--muted); font-size: 13px; }
+        footer { background:var(--bg2); border-top:1px solid var(--border); padding:40px 16px 24px; }
+        .footer-inner { max-width:1280px; margin:0 auto; }
+        .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:32px; margin-bottom:32px; }
+        .footer-brand p { color:var(--muted); font-size:13px; line-height:1.7; margin-top:10px; }
+        .footer-col h4 { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+        .footer-col ul { list-style:none; }
+        .footer-col li { margin-bottom:9px; }
+        .footer-col a { color:#8899AA; text-decoration:none; font-size:13px; transition:color 0.2s; }
+        .footer-col a:hover { color:var(--cyan); }
+        .footer-bottom { border-top:1px solid var(--border); padding-top:20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+        .footer-bottom p { color:var(--muted); font-size:12px; }
 
         /* ── MODALS ── */
-        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 16px; }
+        .modal-overlay {
+            display: none; position: fixed; inset: 0; z-index: 1000;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(6px);
+            align-items: flex-end; justify-content: center;
+            padding: 0; overflow: hidden;
+        }
         .modal-overlay.show { display: flex; }
-        .modal-box { background: var(--bg2); border: 1px solid var(--border); width: 100%; max-width: 450px; border-radius: 20px; overflow: hidden; animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        @keyframes modalIn { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-        .modal-head { padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-        .modal-head h2 { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; }
-        .modal-head h2 span { color: var(--cyan); }
-        .modal-close { background: none; border: none; color: var(--muted); font-size: 20px; cursor: pointer; transition: color 0.2s; }
-        .modal-close:hover { color: var(--danger); }
-        .modal-body { padding: 24px; max-height: 80vh; overflow-y: auto; }
-        .fg { margin-bottom: 16px; }
-        .fg label { display: block; font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .fg input, .fg select, .fg textarea { width: 100%; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 11px 14px; color: var(--text); font-family: 'Barlow', sans-serif; font-size: 14px; transition: all 0.2s; }
-        .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--cyan); outline: none; box-shadow: 0 0 0 3px rgba(0,212,255,0.1); }
-        .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .btn-submit { width: 100%; background: var(--cyan); color: #050a10; border: none; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.2s; font-family: 'Barlow', sans-serif; margin-top: 8px; }
-        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,212,255,0.3); }
-        .btn-submit.orange { background: var(--orange); color: white; }
-        .btn-submit.orange:hover { box-shadow: 0 5px 15px rgba(255,107,43,0.3); }
-        .btn-submit.green { background: var(--green); color: #050a10; }
-        .btn-submit.green:hover { box-shadow: 0 5px 15px rgba(0,255,136,0.3); }
+        .modal-box {
+            background: var(--bg2); border: 1px solid rgba(0,212,255,0.2);
+            border-radius: 18px 18px 0 0; width: 100%; max-width: 520px;
+            box-shadow: 0 -8px 40px rgba(0,0,0,0.5);
+            animation: slideUp 0.28s cubic-bezier(0.34,1.56,0.64,1);
+            max-height: 92dvh; display: flex; flex-direction: column;
+        }
+        @media (min-width: 600px) {
+            .modal-overlay { align-items: center; padding: 16px; }
+            .modal-box { border-radius: 14px; max-height: 90vh; }
+        }
+        @keyframes slideUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+        .modal-head {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 18px 20px 14px; border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+        .modal-head h2 { font-family:'Rajdhani',sans-serif; font-size:20px; font-weight:700; }
+        .modal-head h2 span { color:var(--cyan); }
+        .modal-close { background:var(--bg3); border:1px solid var(--border); color:var(--muted); width:28px; height:28px; border-radius:6px; font-size:14px; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+        .modal-close:hover { border-color:var(--danger); color:var(--danger); }
+        .modal-body { padding: 18px 20px 24px; overflow-y: auto; flex: 1; -webkit-overflow-scrolling: touch; }
+        .modal-tabs { display:flex; gap:4px; background:var(--bg3); border-radius:8px; padding:4px; margin-bottom:18px; }
+        .modal-tab { flex:1; padding:8px; text-align:center; border-radius:6px; font-size:12px; font-weight:600; cursor:pointer; color:var(--muted); background:transparent; border:none; transition:all 0.2s; font-family:'Barlow',sans-serif; }
+        .modal-tab.active { background:var(--card); color:var(--cyan); border:1px solid rgba(0,212,255,0.2); }
+        .form-section { display:none; }
+        .form-section.active { display:block; }
+        .fg { margin-bottom:13px; }
+        .fg label { display:block; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:5px; }
+        .fg input, .fg select, .fg textarea {
+            width:100%; background:var(--bg3); border:1px solid var(--border); border-radius:7px;
+            color:var(--text); font-family:'Barlow',sans-serif; font-size:16px; padding:10px 12px;
+            transition:border-color 0.2s; outline:none; -webkit-appearance:none;
+        }
+        .fg input:focus, .fg select:focus, .fg textarea:focus { border-color:var(--cyan); }
+        .fg select option { background:var(--bg2); }
+        .fg textarea { resize:vertical; min-height:80px; }
+        .fg-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+        .btn-submit { width:100%; padding:12px; background:linear-gradient(135deg,var(--cyan),#0090b8); color:#040d14; font-weight:700; font-size:14px; border:none; border-radius:7px; cursor:pointer; transition:all 0.2s; font-family:'Barlow',sans-serif; margin-top:4px; }
+        .btn-submit:hover { box-shadow:0 6px 20px rgba(0,212,255,0.3); }
+        .btn-submit.orange { background:linear-gradient(135deg,var(--orange),#c84400); color:white; }
+        .btn-submit.orange:hover { box-shadow:0 6px 20px rgba(255,107,43,0.35); }
+        .btn-submit.green { background:linear-gradient(135deg,var(--green),#00b35e); color:#040d14; }
+        .btn-submit.green:hover { box-shadow:0 6px 20px rgba(0,255,136,0.3); }
+        .btn-submit:disabled { opacity:0.5; cursor:not-allowed; }
+        .modal-alert { display:none; padding:10px 13px; border-radius:7px; font-size:12px; margin-bottom:12px; font-weight:500; }
+        .modal-alert.show { display:block; }
+        .modal-alert.success { background:rgba(0,255,136,0.1); border:1px solid rgba(0,255,136,0.25); color:var(--green); }
+        .modal-alert.error { background:rgba(255,59,92,0.1); border:1px solid rgba(255,59,92,0.25); color:var(--danger); }
+        .modal-alert.info { background:rgba(0,212,255,0.1); border:1px solid rgba(0,212,255,0.2); color:var(--cyan); }
+        .loading-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:currentColor; animation:loading 0.8s infinite alternate; margin-right:5px; }
+        @keyframes loading { from{opacity:0.3} to{opacity:1} }
 
-        .modal-alert { padding: 12px 16px; border-radius: 8px; font-size: 13px; margin-bottom: 16px; display: none; }
-        .modal-alert.show { display: block; }
-        .modal-alert.error { background: rgba(255,59,92,0.1); color: var(--danger); border: 1px solid rgba(255,59,92,0.2); }
-        .modal-alert.success { background: rgba(0,255,136,0.1); color: var(--green); border: 1px solid rgba(0,255,136,0.2); }
-        .modal-alert.info { background: rgba(0,212,255,0.1); color: var(--cyan); border: 1px solid rgba(0,212,255,0.2); }
-
-        .modal-tabs { display: flex; border-bottom: 1px solid var(--border); margin: -24px -24px 20px; }
-        .modal-tab { flex: 1; padding: 14px; text-align: center; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; transition: all 0.2s; border-bottom: 2px solid transparent; }
-        .modal-tab.active { color: var(--cyan); border-bottom-color: var(--cyan); background: rgba(0,212,255,0.03); }
-        .form-section { display: none; }
-        .form-section.active { display: block; }
-
-        /* ── TOPUP MODAL SPECIFIC ── */
-        .topup-modal-box { max-width: 650px; }
-        .topup-tabs-modal { display: flex; gap: 8px; margin-bottom: 20px; }
-        .topup-tab-m { flex: 1; padding: 10px; border-radius: 10px; background: var(--bg3); border: 1px solid var(--border); color: var(--muted); font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: 'Barlow', sans-serif; }
-        .topup-tab-m.active { background: rgba(0,212,255,0.1); border-color: var(--cyan); color: var(--cyan); }
-        .topup-panel-m { display: none; }
-        .topup-panel-m.active { display: block; }
-        .bank-layout-m { display: grid; grid-template-columns: 200px 1fr; gap: 24px; }
-        .qr-card { background: white; padding: 12px; border-radius: 16px; text-align: center; height: fit-content; }
-        .qr-wrapper { background: #f8f9fa; padding: 8px; border-radius: 10px; margin-bottom: 10px; }
-        .qr-wrapper img { width: 100%; border-radius: 4px; }
-        .bank-info-list { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
-        .bank-info-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .bank-info-row:last-child { border-bottom: none; }
-        .bank-info-row .label { font-size: 11px; color: var(--muted); text-transform: uppercase; }
-        .bank-info-row .value { font-size: 14px; font-weight: 600; color: var(--text); }
-        .bank-info-row .value.stk { font-family: 'Rajdhani', sans-serif; font-size: 18px; color: var(--cyan); }
-        .copy-btn { background: rgba(0,212,255,0.1); color: var(--cyan); border: 1px solid rgba(0,212,255,0.2); padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; cursor: pointer; }
-        .copy-btn:hover { background: var(--cyan); color: #050a10; }
-        .guide-step { display: flex; gap: 12px; margin-bottom: 12px; }
-        .step-num { width: 22px; height: 22px; background: var(--cyan); color: #050a10; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
-        .step-text { font-size: 13px; }
-        .step-text strong { color: var(--text); }
-        .step-text p { font-size: 11px; color: var(--muted); margin-top: 2px; }
-
-        .card-grid-m { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
-        .carrier-btn { background: var(--bg3); border: 1px solid var(--border); padding: 10px; border-radius: 8px; cursor: pointer; text-align: center; transition: all 0.2s; }
-        .carrier-btn img { height: 20px; margin: 0 auto; filter: grayscale(1) opacity(0.6); }
-        .carrier-btn.active { border-color: var(--cyan); background: rgba(0,212,255,0.05); }
-        .carrier-btn.active img { filter: none; opacity: 1; }
-        .denom-grid-m { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-        .denom-btn { background: var(--bg3); border: 1px solid var(--border); padding: 10px; border-radius: 8px; cursor: pointer; text-align: center; font-size: 12px; font-weight: 600; transition: all 0.2s; }
-        .denom-btn:hover { border-color: var(--cyan); }
-        .denom-btn.active { background: var(--cyan); color: #050a10; border-color: var(--cyan); }
+        /* ── TOPUP MODAL (wide) ── */
+        .topup-modal-box { max-width: 860px; }
+        .topup-tabs-modal { display:flex; gap:5px; background:var(--bg3); border-radius:9px; padding:4px; margin-bottom:22px; max-width:340px; }
+        .topup-tab-m { flex:1; padding:10px 14px; text-align:center; border-radius:7px; font-size:13px; font-weight:700; cursor:pointer; color:var(--muted); background:transparent; border:none; transition:all 0.2s; font-family:'Barlow',sans-serif; display:flex; align-items:center; justify-content:center; gap:7px; }
+        .topup-tab-m.active { background:var(--card); color:var(--cyan); border:1px solid rgba(0,212,255,0.25); box-shadow:0 2px 10px rgba(0,212,255,0.1); }
+        .topup-panel-m { display:none; }
+        .topup-panel-m.active { display:block; }
+        .bank-layout-m { display:grid; grid-template-columns:280px 1fr; gap:20px; align-items:start; }
+        .qr-card { background:var(--bg3); border:1px solid var(--border); border-radius:12px; padding:18px; text-align:center; }
+        .qr-wrapper { background:white; border-radius:10px; padding:12px; margin-bottom:12px; display:inline-block; }
+        .qr-wrapper img { width:180px; height:180px; display:block; }
+        .bank-info-list { text-align:left; }
+        .bank-info-row { display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid var(--border); font-size:13px; flex-wrap:wrap; gap:5px; }
+        .bank-info-row:last-child { border-bottom:none; }
+        .bank-info-row .label { color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:0.5px; }
+        .bank-info-row .value { font-weight:700; color:var(--text); font-family:'Rajdhani',sans-serif; font-size:14px; }
+        .bank-info-row .value.stk { color:var(--cyan); font-size:17px; letter-spacing:2px; }
+        .copy-btn { background:rgba(0,212,255,0.1); border:1px solid rgba(0,212,255,0.2); color:var(--cyan); padding:3px 9px; border-radius:4px; font-size:10px; font-weight:700; cursor:pointer; transition:all 0.2s; font-family:'Barlow',sans-serif; }
+        .copy-btn:hover { background:rgba(0,212,255,0.2); }
+        .bank-guide-m { background:var(--bg3); border:1px solid var(--border); border-radius:12px; padding:18px; }
+        .bank-guide-m h3 { font-family:'Rajdhani',sans-serif; font-size:17px; font-weight:700; margin-bottom:14px; color:var(--cyan); }
+        .guide-step { display:flex; gap:10px; margin-bottom:14px; align-items:flex-start; }
+        .guide-step:last-child { margin-bottom:0; }
+        .step-num { width:26px; height:26px; border-radius:50%; flex-shrink:0; background:linear-gradient(135deg,var(--cyan),#0090b8); color:#040d14; font-weight:700; font-size:12px; display:flex; align-items:center; justify-content:center; }
+        .step-text strong { display:block; font-size:12px; font-weight:700; margin-bottom:2px; }
+        .step-text p { font-size:11px; color:var(--muted); }
+        .topup-notice { margin-top:14px; background:rgba(255,214,0,0.07); border:1px solid rgba(255,214,0,0.2); border-radius:9px; padding:11px 14px; font-size:12px; color:#e8c800; display:flex; gap:8px; align-items:flex-start; }
+        .topup-notice span:first-child { font-size:14px; flex-shrink:0; }
+        .card-layout-m { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+        .card-form-box-m { background:var(--bg3); border:1px solid var(--border); border-radius:12px; padding:18px; }
+        .card-form-box-m h3 { font-family:'Rajdhani',sans-serif; font-size:17px; font-weight:700; margin-bottom:14px; }
+        .carrier-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; margin-bottom:14px; }
+        .carrier-btn { padding:9px 5px; border-radius:7px; border:1px solid var(--border); background:var(--bg); color:var(--muted); font-size:11px; font-weight:700; cursor:pointer; transition:all 0.2s; text-align:center; font-family:'Barlow',sans-serif; }
+        .carrier-btn.active { border-color:var(--cyan); background:rgba(0,212,255,0.1); color:var(--cyan); }
+        .carrier-btn .carrier-icon { font-size:18px; display:block; margin-bottom:3px; }
+        .denom-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-bottom:14px; }
+        .denom-btn { padding:8px 4px; border-radius:6px; border:1px solid var(--border); background:var(--bg); color:var(--muted); font-size:12px; font-weight:700; cursor:pointer; transition:all 0.2s; text-align:center; font-family:'Rajdhani',sans-serif; }
+        .denom-btn.active { border-color:var(--orange); background:rgba(255,107,43,0.1); color:var(--orange); }
+        .card-discount-notice { background:rgba(255,59,92,0.08); border:1px solid rgba(255,59,92,0.2); border-radius:7px; padding:9px 11px; font-size:11px; color:#ff7a94; margin-bottom:12px; display:flex; gap:7px; }
+        .receive-amount { background:var(--bg); border:1px solid var(--border); border-radius:7px; padding:10px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; }
+        .receive-amount .label { font-size:11px; color:var(--muted); }
+        .receive-amount .amount { font-family:'Rajdhani',sans-serif; font-size:18px; font-weight:700; color:var(--green); }
+        .card-note-box-m { background:var(--bg3); border:1px solid var(--border); border-radius:12px; padding:18px; }
+        .card-note-box-m h3 { font-family:'Rajdhani',sans-serif; font-size:17px; font-weight:700; margin-bottom:13px; color:var(--orange); }
+        .note-item { display:flex; gap:9px; margin-bottom:12px; font-size:12px; }
+        .note-item:last-child { margin-bottom:0; }
+        .note-item .ni { flex-shrink:0; font-size:15px; }
 
         /* ── PURCHASE MODAL ── */
-        .purchase-summary { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 20px; }
-        .ps-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px; }
-        .ps-row:last-child { margin-bottom: 0; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.05); }
-        .ps-label { color: var(--muted); }
-        .ps-value { font-weight: 600; }
-        .ps-price { color: var(--orange); font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 700; }
-        .balance-box { background: rgba(0,255,136,0.05); border: 1px solid rgba(0,255,136,0.15); border-radius: 10px; padding: 12px; margin-bottom: 16px; display: block; }
-        .bb-inner { display: flex; justify-content: space-between; align-items: center; }
-        .bb-amount { font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 700; color: var(--green); }
-        .bb-insufficient { color: var(--danger); font-weight: 700; }
-        .bb-topup-hint { font-size: 11px; color: var(--cyan); cursor: pointer; text-decoration: underline; }
-        .insufficient-banner { background: rgba(255,59,92,0.1); border: 1px solid rgba(255,59,92,0.2); border-radius: 8px; padding: 10px; margin-bottom: 16px; display: none; }
-        .insufficient-banner.show { display: flex; align-items: center; gap: 10px; }
-        .ib-icon { font-size: 18px; }
-        .ib-text { font-size: 11px; color: var(--danger); line-height: 1.3; }
+        .purchase-info { background:var(--bg3); border:1px solid var(--border); border-radius:8px; padding:12px; margin-bottom:14px; display:flex; align-items:center; justify-content:space-between; }
+        .purchase-info-name { font-weight:600; font-size:13px; }
+        .purchase-info-price { font-family:'Rajdhani',sans-serif; font-size:19px; font-weight:700; color:var(--orange); }
+        .balance-box { display:none; background:var(--bg3); border:1px solid rgba(0,255,136,0.2); border-radius:8px; padding:11px 13px; margin-bottom:12px; justify-content:space-between; align-items:center; }
+        .balance-box.show { display:flex; }
+        .bb-amount { font-family:'Rajdhani',sans-serif; font-size:19px; font-weight:700; color:var(--green); }
+        .bb-insufficient { font-family:'Rajdhani',sans-serif; font-size:19px; font-weight:700; color:var(--danger); }
+        .bb-label { font-size:11px; color:var(--muted); }
+        .bb-topup-hint { font-size:11px; color:var(--orange); cursor:pointer; text-decoration:underline; }
+        .insufficient-banner { display:none; background:rgba(255,59,92,0.12); border:1px solid rgba(255,59,92,0.35); border-radius:8px; padding:11px 13px; margin-bottom:12px; gap:9px; align-items:center; }
+        .insufficient-banner.show { display:flex; }
+        .insufficient-banner .ib-icon { font-size:20px; flex-shrink:0; }
+        .insufficient-banner .ib-text { font-size:12px; color:#ff7a9a; }
+        .insufficient-banner .ib-text strong { color:var(--danger); }
+        .ib-btn { margin-top:5px; display:inline-block; background:rgba(255,107,43,0.15); color:var(--orange); border:1px solid rgba(255,107,43,0.3); padding:3px 10px; border-radius:5px; font-size:11px; font-weight:700; cursor:pointer; font-family:'Barlow',sans-serif; }
+        .ugphone-field { display:none; }
+        .ugphone-field.show { display:block; }
 
-        /* ── ORDER HISTORY MODAL ── */
-        .order-history-box { max-width: 600px; }
-        .order-item { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 12px; transition: all 0.2s; }
-        .order-item:hover { border-color: rgba(0,212,255,0.3); }
-        .order-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-        .order-code { font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 700; color: var(--cyan); }
-        .order-date { font-size: 11px; color: var(--muted); }
-        .order-status { font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; }
-        .status-pending { background: rgba(255,214,0,0.1); color: var(--yellow); }
-        .status-paid { background: rgba(0,255,136,0.1); color: var(--green); }
-        .status-done { background: rgba(0,212,255,0.1); color: var(--cyan); }
-        .status-cancelled { background: rgba(255,59,92,0.1); color: var(--danger); }
-        .order-body { display: flex; gap: 12px; }
-        .order-img { width: 50px; height: 50px; border-radius: 8px; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
-        .order-info { flex: 1; }
-        .order-name { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
-        .order-price { font-size: 13px; color: var(--orange); font-weight: 700; }
-        .order-history-empty { text-align: center; padding: 40px 20px; color: var(--muted); }
-        .order-history-empty div { font-size: 48px; margin-bottom: 16px; opacity: 0.3; }
+        /* ── SUCCESS ── */
+        .success-icon { width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,rgba(0,255,136,0.2),rgba(0,212,255,0.1)); border:2px solid rgba(0,255,136,0.3); display:flex; align-items:center; justify-content:center; font-size:32px; margin:0 auto 14px; animation:pulse-success 2s infinite; }
+        @keyframes pulse-success { 0%,100%{box-shadow:0 0 0 0 rgba(0,255,136,0.3)} 50%{box-shadow:0 0 0 10px rgba(0,255,136,0)} }
+        .order-code-box { background:var(--bg3); border:1px solid rgba(0,212,255,0.2); border-radius:10px; padding:14px; margin-bottom:16px; text-align:center; }
+        .order-code-label { font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; }
+        .order-code-value { font-family:'Rajdhani',sans-serif; font-size:26px; font-weight:700; color:var(--cyan); letter-spacing:3px; }
+        .order-code-copy { margin-top:7px; background:rgba(0,212,255,0.1); border:1px solid rgba(0,212,255,0.2); color:var(--cyan); padding:5px 14px; border-radius:6px; font-size:11px; font-weight:700; cursor:pointer; transition:all 0.2s; font-family:'Barlow',sans-serif; }
+        .zalo-notice { background:rgba(0,104,255,0.08); border:1px solid rgba(0,104,255,0.25); border-radius:10px; padding:15px; margin-bottom:16px; }
+        .zalo-notice-title { font-weight:700; font-size:14px; color:#4d90ff; margin-bottom:9px; display:flex; align-items:center; gap:7px; }
+        .zalo-notice ol { list-style:none; counter-reset:zalo-step; padding:0; }
+        .zalo-notice ol li { counter-increment:zalo-step; display:flex; gap:9px; align-items:flex-start; font-size:12px; color:var(--text); margin-bottom:9px; line-height:1.5; }
+        .zalo-notice ol li:last-child { margin-bottom:0; }
+        .zalo-notice ol li::before { content:counter(zalo-step); background:rgba(0,104,255,0.25); color:#4d90ff; width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; flex-shrink:0; }
+        .ugphone-reminder { display:none; background:rgba(255,107,43,0.08); border:1px solid rgba(255,107,43,0.2); border-radius:8px; padding:11px 13px; font-size:12px; color:#ffaa80; margin-bottom:14px; gap:7px; align-items:flex-start; }
+        .ugphone-reminder.show { display:flex; }
+        .btn-zalo { width:100%; padding:12px; background:linear-gradient(135deg,#0068FF,#0045b0); color:white; font-weight:700; font-size:14px; border:none; border-radius:8px; cursor:pointer; transition:all 0.2s; font-family:'Barlow',sans-serif; display:flex; align-items:center; justify-content:center; gap:9px; }
+        .btn-zalo:hover { box-shadow:0 6px 22px rgba(0,104,255,0.4); }
 
-        /* ── ADMIN MODAL SPECIFIC ── */
-        .admin-modal-box { max-width: 850px; }
-        .admin-stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
-        .admin-stat-box { background: var(--bg); border: 1px solid var(--border); padding: 16px; border-radius: 12px; text-align: center; }
-        .admin-stat-num { font-family: 'Rajdhani', sans-serif; font-size: 24px; font-weight: 700; line-height: 1; margin-bottom: 4px; }
-        .admin-stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-        .admin-filter-bar { display: flex; gap: 8px; margin-bottom: 16px; align-items: center; flex-wrap: wrap; }
-        .admin-filter-btn { background: var(--bg3); border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; color: var(--muted); cursor: pointer; }
-        .admin-filter-btn.active { background: var(--cyan); color: #050a10; border-color: var(--cyan); }
-        .admin-table-wrapper { overflow-x: auto; margin: 0 -24px; padding: 0 24px; }
-        .admin-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-        .admin-table th { text-align: left; padding: 12px 8px; border-bottom: 1px solid var(--border); color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 10px; }
-        .admin-table td { padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.03); vertical-align: middle; }
-        .admin-table tr:hover { background: rgba(255,255,255,0.02); }
-        .admin-order-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px; margin-bottom: 10px; }
-        .aoc-head { display: flex; justify-content: space-between; margin-bottom: 8px; }
-        .aoc-body { font-size: 12px; color: var(--muted); margin-bottom: 10px; line-height: 1.4; }
-        .aoc-body strong { color: var(--text); }
-        .aoc-actions { display: flex; gap: 6px; }
-        .btn-action { padding: 5px 10px; border-radius: 5px; border: none; font-size: 11px; font-weight: 700; cursor: pointer; font-family: 'Barlow', sans-serif; }
-        .btn-done { background: var(--green); color: #050a10; }
-        .btn-cancel { background: var(--danger); color: white; }
-        .btn-view { background: var(--bg3); border: 1px solid var(--border); color: var(--text); }
+        /* ── ORDER HISTORY ── */
+        .order-history-box { max-width:700px; }
+        .order-row { background:var(--bg3); border:1px solid var(--border); border-radius:10px; padding:13px 14px; margin-bottom:9px; transition:border-color 0.2s; }
+        .order-row:hover { border-color:rgba(0,212,255,0.2); }
+        .order-row-header { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap; }
+        .order-row-code { font-family:'Rajdhani',sans-serif; font-size:16px; font-weight:700; color:var(--cyan); letter-spacing:1px; }
+        .order-row-product { font-size:13px; font-weight:600; color:var(--text); margin:3px 0; }
+        .order-row-meta { font-size:11px; color:var(--muted); }
+        .order-row-price { font-family:'Rajdhani',sans-serif; font-size:17px; font-weight:700; color:var(--orange); }
+        .order-status { display:inline-block; padding:3px 9px; border-radius:4px; font-size:9px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; margin-top:3px; }
+        .status-pending { background:rgba(255,214,0,0.12); color:var(--yellow); border:1px solid rgba(255,214,0,0.25); }
+        .status-paid { background:rgba(0,255,136,0.12); color:var(--green); border:1px solid rgba(0,255,136,0.25); }
+        .status-done { background:rgba(0,212,255,0.12); color:var(--cyan); border:1px solid rgba(0,212,255,0.25); }
+        .status-cancelled { background:rgba(255,59,92,0.12); color:var(--danger); border:1px solid rgba(255,59,92,0.25); }
+        .order-history-empty { text-align:center; padding:44px 20px; color:var(--muted); }
+        .order-history-empty div { font-size:38px; margin-bottom:12px; }
 
-        .admin-topup-section { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
-        .admin-topup-section h4 { font-family: 'Rajdhani', sans-serif; font-size: 18px; margin-bottom: 16px; color: var(--cyan); }
-        .user-found-box { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.15); border-radius: 10px; padding: 12px; margin-bottom: 16px; display: none; justify-content: space-between; align-items: center; }
-        .user-found-box.show { display: flex; }
-        .user-found-box .uname { font-weight: 700; color: var(--text); }
-        .user-found-box .ucurrent { font-family: 'Rajdhani', sans-serif; font-size: 18px; font-weight: 700; color: var(--cyan); }
+        /* ── ADMIN FAB ── */
+        .admin-fab { position:fixed; bottom:24px; right:16px; z-index:900; width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,var(--purple),#6b2fff); border:none; color:white; font-size:20px; cursor:pointer; box-shadow:0 4px 20px rgba(155,93,255,0.5); display:none; align-items:center; justify-content:center; transition:all 0.2s; }
+        .admin-fab:hover { transform:scale(1.1); }
+        .admin-fab.show { display:flex; }
+        .admin-modal-box { max-width: 560px; }
+        .img-preview { width:100%; height:120px; border-radius:8px; object-fit:cover; display:none; border:1px solid var(--border); margin-top:7px; }
+        .img-preview.show { display:block; }
+        .img-placeholder { width:100%; height:120px; border-radius:8px; border:2px dashed var(--border); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:12px; margin-top:7px; gap:7px; }
+        .admin-topup-section { background:rgba(0,255,136,0.05); border:1px solid rgba(0,255,136,0.15); border-radius:10px; padding:16px; margin-bottom:14px; }
+        .admin-topup-section h4 { font-family:'Rajdhani',sans-serif; font-size:16px; font-weight:700; color:var(--green); margin-bottom:12px; display:flex; align-items:center; gap:7px; }
+        .user-found-box { display:none; background:var(--bg3); border:1px solid rgba(0,212,255,0.2); border-radius:8px; padding:11px 13px; margin-bottom:11px; gap:9px; align-items:center; }
+        .user-found-box.show { display:flex; }
+        .uname { font-weight:700; font-size:13px; }
+        .ucurrent { font-family:'Rajdhani',sans-serif; font-size:17px; font-weight:700; color:var(--cyan); margin-left:auto; }
 
-        /* ── UTILS ── */
-        .loading-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); animation: pulse 1s infinite; }
-        @keyframes pulse { 0% { transform: scale(0.8); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 1; } 100% { transform: scale(0.8); opacity: 0.5; } }
-        .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--bg2); border: 1px solid var(--cyan); color: var(--text); padding: 12px 24px; border-radius: 50px; z-index: 2000; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 0; }
-        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-        .toast-icon { width: 24px; height: 24px; background: var(--cyan); color: #050a10; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; }
-        .admin-fab { position: fixed; bottom: 24px; right: 24px; width: 50px; height: 50px; background: var(--purple); color: white; border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; border: none; box-shadow: 0 5px 15px rgba(155,93,255,0.4); z-index: 900; transition: all 0.2s; }
-        .admin-fab.show { display: flex; }
-        .admin-fab:hover { transform: rotate(90deg) scale(1.1); }
+        /* ── ADMIN ORDERS ── */
+        .admin-order-row { background:var(--bg3); border:1px solid var(--border); border-radius:9px; padding:12px 13px; margin-bottom:8px; }
+        .admin-order-row:hover { border-color:rgba(0,212,255,0.2); }
+        .admin-order-header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+        .admin-order-info { font-size:12px; color:var(--muted); display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+        .admin-order-info span { display:flex; align-items:center; gap:3px; }
+        .status-select { background:var(--bg); border:1px solid var(--border); color:var(--text); padding:4px 8px; border-radius:5px; font-size:11px; font-family:'Barlow',sans-serif; cursor:pointer; }
+        .admin-filter-bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; align-items:center; }
+        .admin-filter-btn { padding:5px 12px; border-radius:6px; border:1px solid var(--border); background:var(--bg3); color:var(--muted); font-size:11px; font-weight:600; cursor:pointer; font-family:'Barlow',sans-serif; transition:all 0.2s; }
+        .admin-filter-btn.active { border-color:var(--cyan); background:rgba(0,212,255,0.1); color:var(--cyan); }
+        .admin-stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:16px; }
+        .admin-stat-box { background:var(--bg3); border:1px solid var(--border); border-radius:8px; padding:12px; text-align:center; }
+        .admin-stat-num { font-family:'Rajdhani',sans-serif; font-size:22px; font-weight:700; line-height:1; }
+        .admin-stat-label { font-size:10px; color:var(--muted); margin-top:3px; text-transform:uppercase; letter-spacing:0.5px; }
 
-        .skeleton-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-        .skeleton-img { height: 150px; background: linear-gradient(90deg, var(--bg3) 25%, var(--bg2) 50%, var(--bg3) 75%); background-size: 200% 100%; animation: skeleton 1.5s infinite; }
-        .skeleton-body { padding: 16px; }
-        .skeleton-line { height: 12px; background: var(--bg3); border-radius: 4px; margin-bottom: 10px; animation: skeleton 1.5s infinite; }
-        @keyframes skeleton { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+        /* ── TOAST ── */
+        .toast { position:fixed; bottom:20px; right:16px; left:16px; z-index:2000; background:var(--bg2); border:1px solid var(--border); border-radius:10px; padding:12px 16px; display:flex; align-items:center; gap:9px; font-size:13px; font-weight:500; box-shadow:0 8px 28px rgba(0,0,0,0.4); transform:translateY(120%); transition:transform 0.3s ease; max-width:360px; margin:0 auto; }
+        .toast.show { transform:translateY(0); }
+        .toast-icon { font-size:18px; }
 
-        .img-preview { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-top: 10px; display: none; border: 1px solid var(--border); }
-        .img-preview.show { display: block; }
-        .img-placeholder { height: 120px; border: 2px dashed var(--border); border-radius: 8px; margin-top: 10px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 12px; }
+        /* ── SKELETON ── */
+        .skeleton-card { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+        .skeleton-img { height:150px; background:linear-gradient(90deg,var(--bg3) 25%,var(--bg2) 50%,var(--bg3) 75%); background-size:200% 100%; animation:shimmer 1.4s infinite; }
+        .skeleton-body { padding:14px; }
+        .skeleton-line { border-radius:4px; margin-bottom:9px; background:linear-gradient(90deg,var(--bg3) 25%,var(--bg2) 50%,var(--bg3) 75%); background-size:200% 100%; animation:shimmer 1.4s infinite; }
+        @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+        .empty-state { text-align:center; padding:50px 20px; color:var(--muted); grid-column:1/-1; }
+        .empty-state div { font-size:42px; margin-bottom:14px; }
 
-        .empty-state { text-align: center; padding: 60px 20px; grid-column: 1/-1; color: var(--muted); }
-        .empty-state div { font-size: 60px; margin-bottom: 20px; opacity: 0.2; }
-
-        .order-code-box { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 20px; position: relative; }
-        .order-code-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
-        .order-code-value { font-family: 'Rajdhani', sans-serif; font-size: 32px; font-weight: 700; color: var(--cyan); letter-spacing: 2px; }
-        .order-code-copy { position: absolute; top: 10px; right: 10px; background: rgba(0,212,255,0.1); border: none; color: var(--cyan); padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; cursor: pointer; }
-        .ugphone-reminder { background: rgba(255,107,43,0.1); border: 1px solid rgba(255,107,43,0.2); border-radius: 10px; padding: 12px; margin-bottom: 20px; display: none; align-items: center; gap: 10px; font-size: 12px; color: var(--orange); }
-        .ugphone-reminder.show { display: flex; }
-        .zalo-notice { background: rgba(0,104,255,0.05); border: 1px solid rgba(0,104,255,0.15); border-radius: 12px; padding: 16px; margin-bottom: 20px; }
-        .zalo-notice-title { font-weight: 700; color: #4d90ff; margin-bottom: 8px; font-size: 14px; }
-        .zalo-notice ol { padding-left: 20px; font-size: 13px; color: var(--muted); }
-        .zalo-notice li { margin-bottom: 6px; }
-        .btn-zalo { display: block; width: 100%; background: #0068ff; color: white; text-align: center; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 14px; transition: all 0.2s; }
-        .btn-zalo:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,104,255,0.3); }
-        .success-icon { font-size: 60px; margin-bottom: 10px; }
-
-        @media (max-width: 992px) {
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+        /* ── RESPONSIVE ── */
+        @media (max-width:860px) {
+            .bank-layout-m { grid-template-columns:1fr; }
+            .card-layout-m { grid-template-columns:1fr; }
         }
-        @media (max-width: 768px) {
-            header { height: auto; }
-            .header-inner { height: 54px; }
-            nav { display: none; }
-            .hamburger { display: flex; }
-            .logo { font-size: 18px; }
-            .logo-icon { width: 28px; height: 28px; font-size: 14px; }
-            .hero { padding: 60px 16px 48px; }
-            .hero h1 { font-size: 42px; }
-            .stat-item { padding: 12px 20px; border-right: none; border-bottom: 1px solid var(--border); width: 50%; }
-            .stat-item:nth-child(even) { border-left: 1px solid var(--border); }
-            .stat-item:nth-last-child(-n+2) { border-bottom: none; }
-            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-            .footer-brand { text-align: center; }
-            .footer-brand p { margin: 16px auto 0; }
-            .footer-col { text-align: center; }
-            .footer-bottom { flex-direction: column; text-align: center; }
-            .bank-layout-m { grid-template-columns: 1fr; }
-            .qr-card { max-width: 220px; margin: 0 auto; }
-            .fg-row { grid-template-columns: 1fr; }
-            .topup-tabs-modal { max-width: 100%; }
-            .header-actions { gap: 4px; }
+        @media (max-width:768px) {
+            nav { display:none; }
+            .hamburger { display:flex; }
+            .btn-neon { display:none; }
+            .footer-grid { grid-template-columns:1fr 1fr; gap:24px; }
         }
-        @media (max-width: 380px) {
-            .products-grid { grid-template-columns: 1fr; }
-            .features-grid { grid-template-columns: 1fr; }
-            .tab-btn .dot { display: none; }
-            .admin-stats-row { grid-template-columns: 1fr; }
+        @media (max-width:600px) {
+            .header-inner { height:50px; padding:0 12px; }
+            .logo { font-size:16px; }
+            .logo-icon { width:26px; height:26px; font-size:13px; }
+            #balanceChip .bal-label { display:none; }
+            #balanceChip { font-size:11px; padding:3px 8px; }
+            .btn-header { font-size:11px; padding:5px 9px; }
+            .btn-ghost#loginBtn { font-size:11px; padding:5px 10px; }
+            .hero { padding:54px 14px 44px; }
+            .hero h1 { font-size:clamp(28px,8vw,40px); }
+            .hero p { font-size:13px; }
+            .hero-cta { flex-direction:column; gap:9px; }
+            .btn-hero-primary, .btn-hero-secondary { padding:12px 20px; font-size:13px; width:100%; }
+            .stats-inner { flex-wrap:wrap; }
+            .stat-item { flex:1 1 45%; padding:12px 8px; border-right:none; border-bottom:1px solid var(--border); }
+            .stat-item:nth-child(odd) { border-right:1px solid var(--border); }
+            .stat-item:nth-last-child(-n+2) { border-bottom:none; }
+            .stat-num { font-size:20px; }
+            .stat-label { font-size:10px; }
+            .products-section { padding:28px 12px; }
+            .section-header { flex-direction:column; align-items:flex-start; gap:12px; }
+            .section-title { font-size:26px; }
+            .products-grid { grid-template-columns:repeat(2,1fr); gap:10px; }
+            .card-img, .card-img-photo { height:100px; }
+            .card-body { padding:10px; }
+            .card-title { font-size:13px; }
+            .card-price { font-size:18px; }
+            .btn-buy { font-size:12px; padding:8px; }
+            .features-section { padding:30px 12px; }
+            .features-grid { grid-template-columns:1fr 1fr; gap:10px; }
+            .feature-card { padding:16px 12px; }
+            .contact-section { padding:32px 12px; }
+            .footer-grid { grid-template-columns:1fr; gap:20px; }
+            footer { padding:28px 12px 20px; }
+            .footer-bottom { flex-direction:column; text-align:center; }
+            .admin-stats-row { grid-template-columns:1fr 1fr 1fr; gap:7px; }
+            .admin-stat-num { font-size:18px; }
+            .fg-row { grid-template-columns:1fr; }
+            .topup-tabs-modal { max-width:100%; }
+            .header-actions { gap:4px; }
+        }
+        @media (max-width:380px) {
+            .products-grid { grid-template-columns:1fr; }
+            .features-grid { grid-template-columns:1fr; }
+            .tab-btn .dot { display:none; }
+            .admin-stats-row { grid-template-columns:1fr; }
         }
     </style>
 </head>
@@ -481,13 +540,13 @@
 </header>
 
 <nav class="mobile-nav" id="mobileNav">
-    <a href="#products" onclick="closeNav()"> Sản phẩm</a>
-    <a href="#features" onclick="closeNav()"> Tại sao chọn</a>
-    <a href="#contact" onclick="closeNav()"> Liên hệ</a>
-    <button id="mobileTopupBtn" style="display:none" onclick="openTopupOrLogin();closeNav()"> Nạp Tiền</button>
-    <button id="mobileOrderBtn" style="display:none" onclick="openOrderHistory();closeNav()"> Lịch sử đơn hàng</button>
-    <button id="mobileAuthBtn" onclick="openModal('authModal');closeNav()"> Đăng nhập / Đăng ký</button>
-    <button id="mobileLogoutBtn" style="display:none" onclick="handleLogout();closeNav()"> Đăng xuất</button>
+    <a href="#products" onclick="closeNav()">🛒 Sản phẩm</a>
+    <a href="#features" onclick="closeNav()">⭐ Tại sao chọn</a>
+    <a href="#contact" onclick="closeNav()">💬 Liên hệ</a>
+    <button id="mobileTopupBtn" style="display:none" onclick="openTopupOrLogin();closeNav()">💳 Nạp Tiền</button>
+    <button id="mobileOrderBtn" style="display:none" onclick="openOrderHistory();closeNav()">📋 Lịch sử đơn hàng</button>
+    <button id="mobileAuthBtn" onclick="openModal('authModal');closeNav()">👤 Đăng nhập / Đăng ký</button>
+    <button id="mobileLogoutBtn" style="display:none;color:var(--danger)" onclick="handleLogout();closeNav()">🚪 Đăng Xuất</button>
 </nav>
 
 <section class="hero">
@@ -497,17 +556,17 @@
         <h1>Shop Acc <span class="accent-cyan">Uy Tín</span><br>Giá <span class="accent-orange">Tốt Nhất</span></h1>
         <p>Chuyên bán tài khoản Blox Fruit, Liên Quân Mobile & UGPhone. Giao ngay sau thanh toán.</p>
         <div class="hero-cta">
-            <button class="btn-hero-primary" onclick="scrollToProducts()"> Xem Sản Phẩm</button>
-            <button class="btn-hero-secondary" onclick="openTopupOrLogin()"> Nạp Tiền</button>
+            <button class="btn-hero-primary" onclick="scrollToProducts()">🛒 Xem Sản Phẩm</button>
+            <button class="btn-hero-secondary" onclick="openTopupOrLogin()">💰 Nạp Tiền</button>
         </div>
     </div>
 </section>
 
 <div class="stats-bar">
     <div class="stats-inner">
-        <div class="stat-item"><div class="stat-num">200+</div><div class="stat-label">Đơn Hàng</div></div>
-        <div class="stat-item"><div class="stat-num">100+</div><div class="stat-label">Khách Hàng</div></div>
-        <div class="stat-item"><div class="stat-num">4.9/5</div><div class="stat-label">Đánh Giá</div></div>
+        <div class="stat-item"><div class="stat-num">5.000+</div><div class="stat-label">Đơn Hàng</div></div>
+        <div class="stat-item"><div class="stat-num">2.800+</div><div class="stat-label">Khách Hàng</div></div>
+        <div class="stat-item"><div class="stat-num">4.9★</div><div class="stat-label">Đánh Giá</div></div>
         <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">Hỗ Trợ</div></div>
     </div>
 </div>
@@ -607,20 +666,62 @@
                             <div style="font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;margin-bottom:11px;color:var(--cyan)">📌 Hướng Dẫn</div>
                             <div class="guide-step"><div class="step-num">1</div><div class="step-text"><strong>Quét QR hoặc nhập thủ công</strong><p>Mở app ngân hàng → Chuyển tiền → Quét QR hoặc nhập STK</p></div></div>
                             <div class="guide-step"><div class="step-num">2</div><div class="step-text"><strong>Nhập nội dung: <span style="color:var(--yellow)">NAP SHOP ACC [Tên bạn]</span></strong><p>VD: NAP SHOP ACC NGUYEN VAN A</p></div></div>
-                            <div class="guide-step"><div class="step-num">3</div><div class="step-text"><strong>Báo cho Admin</strong><p>Chụp ảnh biên lai và gửi cho admin qua Zalo để được cộng tiền nhanh nhất.</p></div></div>
+                            <div class="guide-step"><div class="step-num">3</div><div class="step-text"><strong>Báo admin qua nhóm Zalo</strong><p>Gửi ảnh giao dịch để được cộng tiền</p></div></div>
                         </div>
-                        <a href="https://zalo.me/g/itxrwd287" target="_blank" class="btn-submit green" style="text-align:center;text-decoration:none;display:block">💬 Đã Chuyển Khoản — Báo Admin</a>
+                        <div class="topup-notice"><span>⚡</span><span>Số dư cộng trong <strong>5–15 phút</strong> sau khi admin xác nhận (8:00–23:00).</span></div>
                     </div>
                 </div>
             </div>
             <div class="topup-panel-m" id="topup-modal-card">
-                <div id="cardAlert" class="modal-alert"></div>
-                <div clas                <div class="fg-row"><div class="fg"><label>Loại Thẻ</label><div class="card-grid-m"><div class="carrier-btn" onclick="selectCarrier('VIETTEL',this)" title="Viettel"><span style="font-size:20px">📱</span><div style="font-size:9px;margin-top:2px">Viettel</div></div><div class="carrier-btn" onclick="selectCarrier('VINAPHONE',this)" title="Vinaphone"><span style="font-size:20px">📱</span><div style="font-size:9px;margin-top:2px">Vina</div></div><div class="carrier-btn" onclick="selectCarrier('MOBIFONE',this)" title="Mobifone"><span style="font-size:20px">📱</span><div style="font-size:9px;margin-top:2px">Mobi</div></div><div class="carrier-btn" onclick="selectCarrier('ZING',this)" title="Zing"><span style="font-size:20px">📱</span><div style="font-size:9px;margin-top:2px">Zing</div></div></div></div>             </div>
-                <div class="fg"><label>Mệnh Giá</label><div class="denom-grid-m"><div class="denom-btn" onclick="selectDenom(10000,this)">10.000đ</div><div class="denom-btn" onclick="selectDenom(20000,this)">20.000đ</div><div class="denom-btn" onclick="selectDenom(50000,this)">50.000đ</div><div class="denom-btn" onclick="selectDenom(100000,this)">100.000đ</div><div class="denom-btn" onclick="selectDenom(200000,this)">200.000đ</div><div class="denom-btn" onclick="selectDenom(500000,this)">500.000đ</div></div></div>
-                <div id="receive-box" style="display:none;background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.2);border-radius:9px;padding:12px 14px;margin-bottom:16px;justify-content:space-between;align-items:center"><div style="font-size:12px;color:var(--muted)">Thực nhận (Chiết khấu 19%):</div><div style="font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:var(--green)" id="receive-amount-val">0đ</div></div>
-                <div class="fg-row"><div class="fg"><label>Mã Thẻ</label><input type="text" id="cardCode" placeholder="1234567890123" inputmode="numeric"></div><div class="fg"><label>Số Seri</label><input type="text" id="cardSeri" placeholder="1000123456789" inputmode="numeric"></div></div>
-                <button class="btn-submit orange" onclick="handleTopupCard()">🎴 Nạp Thẻ Ngay</button>
-                <div style="margin-top:16px;font-size:11px;color:var(--muted);line-height:1.5">📌 Lưu ý:Nạp thẻ sẽ bị tính chiết khấu 18%, Chọn sai mệnh giá sẽ bị trừ 50% của mệnh giá thật. Thẻ cào được duyệt tự động sau 1-3 phút.</div>
+                <div class="card-layout-m">
+                    <div class="card-form-box-m">
+                        <h3>🎴 Nạp Thẻ Cào</h3>
+                        <div class="fg" style="margin-bottom:7px"><label>Chọn Nhà Mạng</label></div>
+                        <div class="carrier-grid">
+                            <button class="carrier-btn active" onclick="selectCarrier('zing',this)"><span class="carrier-icon">🟣</span>Zing</button>
+                            <button class="carrier-btn" onclick="selectCarrier('garena',this)"><span class="carrier-icon">🟠</span>Garena</button>
+                            <button class="carrier-btn" onclick="selectCarrier('vinaphone',this)"><span class="carrier-icon">🔵</span>Vinaphone</button>
+                            <button class="carrier-btn" onclick="selectCarrier('mobifone',this)"><span class="carrier-icon">🔴</span>Mobifone</button>
+                            <button class="carrier-btn" onclick="selectCarrier('viettel',this)"><span class="carrier-icon">🔵</span>Viettel</button>
+                        </div>
+                        <div class="fg" style="margin-bottom:7px;margin-top:2px"><label>Chọn Mệnh Giá</label></div>
+                        <div class="denom-grid">
+                            <button class="denom-btn" onclick="selectDenom(10000,this)">10K</button>
+                            <button class="denom-btn" onclick="selectDenom(20000,this)">20K</button>
+                            <button class="denom-btn" onclick="selectDenom(50000,this)">50K</button>
+                            <button class="denom-btn" onclick="selectDenom(100000,this)">100K</button>
+                            <button class="denom-btn" onclick="selectDenom(200000,this)">200K</button>
+                            <button class="denom-btn" onclick="selectDenom(500000,this)">500K</button>
+                        </div>
+                        <div class="card-discount-notice"><span>⚠️</span><span>Chiết khấu <strong>19%</strong> — chỉ nhận <strong>81% mệnh giá</strong>.</span></div>
+                        <div class="receive-amount" id="receive-box" style="display:none"><div><div class="label">Nhận được</div><div class="amount" id="receive-amount-val">0đ</div></div><div style="text-align:right"><div class="label">Mệnh giá</div><div style="font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;color:var(--muted);text-decoration:line-through" id="denom-val">0đ</div></div></div>
+                        <div class="fg"><label>Số Thẻ</label><input type="text" id="card-number" placeholder="Nhập số thẻ" inputmode="numeric"></div>
+                        <div class="fg"><label>Seri</label><input type="text" id="card-serial" placeholder="Nhập seri thẻ"></div>
+                        <div class="fg"><label>SĐT Liên Hệ</label><input type="tel" id="card-phone" placeholder="09xxxxxxxx" inputmode="tel"></div>
+                        <div id="cardSubmitAlert" class="modal-alert"></div>
+                        <button class="btn-submit green" onclick="handleCardSubmit()">🎴 Nộp Thẻ</button>
+                    </div>
+                    <div class="card-note-box-m">
+                        <h3>📌 Lưu Ý</h3>
+                        <div class="note-item"><span class="ni">💸</span><div><strong style="display:block;margin-bottom:2px;font-size:12px">Chiết khấu 19%</strong><span style="font-size:11px;color:var(--muted)">100K → nhận <strong style="color:var(--green)">81.000đ</strong></span></div></div>
+                        <div class="note-item"><span class="ni">⏱️</span><div><strong style="display:block;margin-bottom:2px;font-size:12px">Xử lý 5–30 phút</strong><span style="font-size:11px;color:var(--muted)">Admin kiểm tra và cộng tiền thủ công.</span></div></div>
+                        <div class="note-item"><span class="ni">✅</span><div><strong style="display:block;margin-bottom:2px;font-size:12px">Thẻ hợp lệ</strong><span style="font-size:11px;color:var(--muted)">Chỉ thẻ còn hạn, chưa cào. Thẻ lỗi không hoàn.</span></div></div>
+                        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border)">
+                            <div style="font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;margin-bottom:9px;color:var(--cyan)">Bảng Chiết Khấu</div>
+                            <table style="width:100%;font-size:11px;border-collapse:collapse">
+                                <thead><tr style="color:var(--muted)"><th style="text-align:left;padding:4px 0;border-bottom:1px solid var(--border)">Mệnh Giá</th><th style="text-align:right;padding:4px 0;border-bottom:1px solid var(--border)">CK</th><th style="text-align:right;padding:4px 0;border-bottom:1px solid var(--border)">Nhận</th></tr></thead>
+                                <tbody>
+                                    <tr><td style="padding:4px 0">10K</td><td style="text-align:right;color:var(--danger)">19%</td><td style="text-align:right;color:var(--green);font-weight:700">8.100đ</td></tr>
+                                    <tr><td style="padding:4px 0">20K</td><td style="text-align:right;color:var(--danger)">19%</td><td style="text-align:right;color:var(--green);font-weight:700">16.200đ</td></tr>
+                                    <tr><td style="padding:4px 0">50K</td><td style="text-align:right;color:var(--danger)">19%</td><td style="text-align:right;color:var(--green);font-weight:700">40.500đ</td></tr>
+                                    <tr><td style="padding:4px 0">100K</td><td style="text-align:right;color:var(--danger)">19%</td><td style="text-align:right;color:var(--green);font-weight:700">81.000đ</td></tr>
+                                    <tr><td style="padding:4px 0">200K</td><td style="text-align:right;color:var(--danger)">19%</td><td style="text-align:right;color:var(--green);font-weight:700">162.000đ</td></tr>
+                                    <tr><td style="padding:4px 0">500K</td><td style="text-align:right;color:var(--danger)">19%</td><td style="text-align:right;color:var(--green);font-weight:700">405.000đ</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -629,25 +730,27 @@
 <!-- ══ MODAL: AUTH ══ -->
 <div class="modal-overlay" id="authModal">
     <div class="modal-box">
-        <div class="modal-tabs">
-            <div class="modal-tab active" id="tabLogin" onclick="switchAuthTab('login')">Đăng Nhập</div>
-            <div class="modal-tab" id="tabRegister" onclick="switchAuthTab('register')">Đăng Ký</div>
-        </div>
+        <div class="modal-head"><h2>Tài Khoản <span>Dexsty</span></h2><button class="modal-close" onclick="closeModal('authModal')">✕</button></div>
         <div class="modal-body">
+            <div class="modal-tabs">
+                <button class="modal-tab active" id="tabLogin" onclick="switchAuthTab('login')">Đăng Nhập</button>
+                <button class="modal-tab" id="tabRegister" onclick="switchAuthTab('register')">Đăng Ký</button>
+            </div>
             <div id="authAlert" class="modal-alert"></div>
-            <!-- Form: Login -->
             <div class="form-section active" id="loginForm">
                 <div class="fg"><label>Email</label><input type="email" id="loginEmail" placeholder="email@example.com" inputmode="email"></div>
                 <div class="fg"><label>Mật Khẩu</label><input type="password" id="loginPassword" placeholder="••••••••"></div>
-                <button class="btn-submit" onclick="handleLogin()">🚀 Đăng Nhập Ngay</button>
+                <button class="btn-submit" onclick="handleLogin()">Đăng Nhập</button>
             </div>
-            <!-- Form: Register -->
             <div class="form-section" id="registerForm">
-                <div class="fg-row"><div class="fg"><label>Họ</label><input type="text" id="regFirstname" placeholder="Nguyễn"></div><div class="fg"><label>Tên</label><input type="text" id="regLastname" placeholder="Văn A"></div></div>
+                <div class="fg-row">
+                    <div class="fg"><label>Họ</label><input type="text" id="regFirstname" placeholder="Nguyễn"></div>
+                    <div class="fg"><label>Tên</label><input type="text" id="regLastname" placeholder="Văn A"></div>
+                </div>
                 <div class="fg"><label>Email</label><input type="email" id="regEmail" placeholder="email@example.com" inputmode="email"></div>
                 <div class="fg"><label>Số Điện Thoại</label><input type="tel" id="regPhone" placeholder="09xxxxxxxx" inputmode="tel"></div>
                 <div class="fg"><label>Mật Khẩu</label><input type="password" id="regPassword" placeholder="Tối thiểu 6 ký tự"></div>
-                <button class="btn-submit orange" onclick="handleRegister()">✨ Tạo Tài Khoản</button>
+                <button class="btn-submit" onclick="handleRegister()">Tạo Tài Khoản</button>
             </div>
         </div>
     </div>
@@ -656,28 +759,46 @@
 <!-- ══ MODAL: PURCHASE ══ -->
 <div class="modal-overlay" id="purchaseModal">
     <div class="modal-box">
-        <div class="modal-head"><h2>🛒 Thanh <span>Toán</span></h2><button class="modal-close" onclick="closeModal('purchaseModal')">✕</button></div>
+        <div class="modal-head"><h2>Xác Nhận <span>Đặt Hàng</span></h2><button class="modal-close" onclick="closeModal('purchaseModal')">✕</button></div>
         <div class="modal-body">
-            <div id="purchaseAlert" class="modal-alert"></div>
-            <div class="purchase-summary">
-                <div class="ps-row"><span class="ps-label">Sản phẩm:</span><span class="ps-value" id="purchaseProductName">—</span></div>
-                <div class="ps-row"><span class="ps-label">Tổng thanh toán:</span><span class="ps-price" id="purchaseProductPrice">0đ</span></div>
+            <div class="purchase-info">
+                <div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Sản Phẩm</div><div class="purchase-info-name" id="purchaseProductName">—</div></div>
+                <div class="purchase-info-price" id="purchaseProductPrice">—</div>
             </div>
             <div class="balance-box" id="purchaseBalanceBox">
-                <div class="bb-inner">
-                    <div><div style="font-size:10px;color:var(--muted);margin-bottom:2px">Số dư hiện tại</div><div id="purchaseBalanceStatus">0đ</div></div>
-                    <div id="purchaseBalanceHint"></div>
-                </div>
+                <div><div class="bb-label">Số dư tài khoản</div><div id="purchaseBalanceStatus"></div></div>
+                <div id="purchaseBalanceHint"></div>
             </div>
             <div class="insufficient-banner" id="insufficientBanner">
-                <div class="ib-icon">⚠️</div>
-                <div class="ib-text">Số dư không đủ để thanh toán. Vui lòng nạp thêm tiền.<br><span style="color:var(--cyan);cursor:pointer;font-weight:700" onclick="closeModal('purchaseModal');openModal('topupModal')">→ Nạp tiền ngay (Thiếu <span id="missingAmount">0đ</span>)</span></div>
+                <span class="ib-icon">⛔</span>
+                <div class="ib-text"><strong>Số dư không đủ!</strong><br>Cần thêm <strong id="missingAmount">0đ</strong><br><span class="ib-btn" onclick="closeModal('purchaseModal');openTopupOrLogin()">💳 Nạp tiền ngay</span></div>
             </div>
-            <div class="fg-row"><div class="fg"><label>Họ Tên</label><input type="text" id="pName" placeholder="Nguyễn Văn A"></div><div class="fg"><label>SĐT</label><input type="tel" id="pPhone" placeholder="09xxxxxxxx" inputmode="tel"></div></div>
-            <div class="fg"><label>Email Nhận Acc</label><input type="email" id="pEmail" placeholder="email@example.com" inputmode="email"></div>
-            <div class="fg" id="ugphoneField" style="display:none"><label>ID UGPhone (Nếu mua UGPhone)</label><input type="text" id="pUGPhoneID" placeholder="Nhập ID thiết bị của bạn"></div>
-            <div class="fg"><label>Phương Thức Thanh Toán</label><div style="background:rgba(0,212,255,0.05);border:1px solid var(--border);padding:11px 14px;border-radius:8px;font-size:14px;color:var(--cyan);font-weight:600">💰 Thanh toán bằng số dư</div></div>
-            <div class="fg"><label>Ghi Chú</label><textarea id="pNote" placeholder="Lời nhắn cho shop..." rows="2"></textarea></div>
+            <div id="purchaseAlert" class="modal-alert"></div>
+            <div class="fg-row">
+                <div class="fg"><label>Họ Tên</label><input type="text" id="pName" placeholder="Nguyễn Văn A"></div>
+                <div class="fg"><label>Số Điện Thoại</label><input type="tel" id="pPhone" placeholder="09xxxxxxxx" inputmode="tel"></div>
+            </div>
+            <div class="fg"><label>Email</label><input type="email" id="pEmail" placeholder="email@example.com" inputmode="email"></div>
+            <div class="fg ugphone-field" id="ugphoneField">
+                <label>ID UGPhone <span style="color:var(--orange)">*</span></label>
+                <input type="text" id="pUGPhoneID" placeholder="Nhập ID tài khoản UGPhone">
+                <div style="font-size:10px;color:var(--muted);margin-top:4px">⚠️ Bắt buộc để nhận tài khoản share</div>
+            </div>
+            <div class="fg">
+                <label>Phương Thức Thanh Toán</label>
+                <select id="pPayment" onchange="onPaymentChange()">
+                    <option value="">— Chọn phương thức —</option>
+                    <option value="balance">💰 Số dư tài khoản</option>
+                    <option value="momo">💜 Ví MoMo</option>
+                    <option value="zalopay">💙 ZaloPay</option>
+                    <option value="vietinbank">🏦 VietinBank</option>
+                    <option value="vcb">🏦 VCB</option>
+                    <option value="tcb">🏦 Techcombank</option>
+                    <option value="napas">💳 Thẻ ATM/Napas</option>
+                    <option value="card">🎴 Thẻ Cào (CK 19%)</option>
+                </select>
+            </div>
+            <div class="fg"><label>Ghi Chú (tùy chọn)</label><textarea id="pNote" placeholder="Yêu cầu thêm..."></textarea></div>
             <button class="btn-submit orange" id="purchaseSubmitBtn" onclick="handlePurchase()">🛒 Đặt Hàng Ngay</button>
         </div>
     </div>
@@ -706,7 +827,7 @@
                 <div class="zalo-notice-title">💬 Bước Tiếp Theo</div>
                 <ol>
                     <li>Vào nhóm Zalo Dexsty Shop</li>
-                    <li>Nhắn cho <strong style="color:#4d90ff">Trưởng nhóm Bùi Thanh Sơn(Key vàng)</strong></li>
+                    <li>Nhắn cho <strong style="color:#4d90ff">Trưởng nhóm Bùi Thanh Sơn</strong></li>
                     <li>Gửi <strong>mã đơn hàng</strong> ở trên cho admin</li>
                     <li id="ugphoneStep" style="display:none">Gửi kèm <strong style="color:var(--orange)">ID UGPhone</strong></li>
                 </ol>
@@ -826,7 +947,7 @@
 
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-    import { getDatabase, ref, push, set, get, onValue, query, orderByChild, equalTo, limitToLast, runTransaction }
+    import { getDatabase, ref, push, set, get, onValue, query, orderByChild, equalTo, limitToLast, runTransaction, remove }
         from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
     import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile }
         from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -847,14 +968,63 @@
     // ── Discord Webhook ──
     const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1486075383743905925/GtoDjx9Kic9kwZmfe1kW8mOXtpzd7z9H7O3U00oreOJ6-BiWBwyMz5nvlFRiLxgGCs-U';
     async function sendDiscord(embed) {
-        if (!DISCORD_WEBHOOK) return;
         try {
             await fetch(DISCORD_WEBHOOK, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ embeds: [embed] })
             });
-        } catch (e) { console.error('Discord error:', e); }
+        } catch(e) { console.warn('Discord webhook failed:', e); }
+    }
+    function discordOrder(o) {
+        const payLabel={balance:'💰 Số dư',momo:'💜 MoMo',zalopay:'💙 ZaloPay',vietinbank:'🏦 VietinBank',vcb:'🏦 VCB',tcb:'🏦 TCB',napas:'💳 ATM',card:'🎴 Thẻ Cào'};
+        return {
+            title: '🛒 ĐƠN HÀNG MỚI — DEXSTY SHOP',
+            color: 0x00D4FF,
+            fields: [
+                {name:'🔑 Mã đơn',value:`\`${o.orderCode}\``,inline:true},
+                {name:'📦 Sản phẩm',value:o.productName,inline:true},
+                {name:'💰 Giá',value:fmt(o.price),inline:true},
+                {name:'👤 Khách hàng',value:o.customerName,inline:true},
+                {name:'📱 SĐT',value:o.customerPhone,inline:true},
+                {name:'📧 Email',value:o.customerEmail,inline:true},
+                {name:'💳 Thanh toán',value:payLabel[o.paymentMethod]||o.paymentMethod,inline:true},
+                ...(o.ugphoneID?[{name:'📲 ID UGPhone',value:o.ugphoneID,inline:true}]:[]),
+                ...(o.note?[{name:'📝 Ghi chú',value:o.note,inline:false}]:[])
+            ],
+            timestamp: new Date().toISOString(),
+            footer: { text: 'Dexsty Shop — Hệ thống tự động' }
+        };
+    }
+    function discordTopup(email, amount, reason, newBal) {
+        return {
+            title: '💰 NẠP TIỀN THÀNH CÔNG — ADMIN XÁC NHẬN',
+            color: 0x00FF88,
+            fields: [
+                {name:'📧 Email khách',value:email,inline:true},
+                {name:'💵 Số tiền nạp',value:fmt(amount),inline:true},
+                {name:'💳 Số dư mới',value:fmt(newBal),inline:true},
+                {name:'📝 Lý do',value:reason||'Admin cộng thủ công',inline:false}
+            ],
+            timestamp: new Date().toISOString(),
+            footer: { text: 'Dexsty Shop — Hệ thống tự động' }
+        };
+    }
+    function discordCard(d) {
+        return {
+            title: '🎴 NẠP THẺ CÀO MỚI — CHỜ DUYỆT',
+            color: 0xFF6B2B,
+            fields: [
+                {name:'📧 Email',value:d.email||'unknown',inline:true},
+                {name:'📱 Nhà mạng',value:d.carrier.toUpperCase(),inline:true},
+                {name:'💰 Mệnh giá',value:fmt(d.denom),inline:true},
+                {name:'✅ Thực nhận (81%)',value:fmt(d.receiveAmount),inline:true},
+                {name:'🔢 Số thẻ (ẩn)',value:`${d.cardNumber.slice(0,4)}****${d.cardNumber.slice(-4)}`,inline:true},
+                {name:'🔑 Seri (ẩn)',value:`${d.cardSerial.slice(0,4)}****${d.cardSerial.slice(-4)}`,inline:true}
+            ],
+            timestamp: new Date().toISOString(),
+            footer: { text: 'Dexsty Shop — Admin cần duyệt thủ công' }
+        };
     }
 
     // ── Telegram ──
@@ -866,32 +1036,33 @@
     }
     function tgOrder(o) {
         const payLabel={balance:'💰 Số dư',momo:'💜 MoMo',zalopay:'💙 ZaloPay',vietinbank:'🏦 VietinBank',vcb:'🏦 VCB',tcb:'🏦 TCB',napas:'💳 ATM',card:'🎴 Thẻ Cào'};
-        return `🛒 <b>ĐƠN HÀNG MỚI</b>\n━━━━━━━━━━━━━━━━\n📦 <b>Sản phẩm:</b> ${o.productName}\n💰 <b>Giá:</b> ${o.price.toLocaleString('vi-VN')}đ\n👤 <b>Khách:</b> ${o.customerName}\n📞 <b>SĐT:</b> ${o.customerPhone}\n📧 <b>Email:</b> ${o.customerEmail}\n💳 <b>Thanh toán:</b> ${payLabel[o.paymentMethod]||o.paymentMethod}\n🆔 <b>Mã đơn:</b> <code>${o.orderCode}</code>\n📝 <b>Ghi chú:</b> ${o.note||'Không'}\n━━━━━━━━━━━━━━━━`;
+        return `🛒 <b>ĐƠN HÀNG MỚI</b>\n━━━━━━━━━━━━━━━━\n📦 <b>${o.productName}</b>\n💰 <b>${fmt(o.price)}</b>\n🔑 <code>${o.orderCode}</code>\n━━━━━━━━━━━━━━━━\n👤 ${o.customerName}\n📱 ${o.customerPhone}\n📧 ${o.customerEmail}\n💳 ${payLabel[o.paymentMethod]||o.paymentMethod}${o.ugphoneID?'\n📲 UGPhone: '+o.ugphoneID:''}${o.note?'\n📝 '+o.note:''}\n⏰ ${new Date().toLocaleString('vi-VN')}`;
+    }
+    function tgCard(d) {
+        return `🎴 <b>NẠP THẺ MỚI</b>\n📱 ${d.carrier.toUpperCase()}\n💰 ${fmt(d.denom)} → nhận ${fmt(d.receiveAmount)}\n🔢 <code>${d.cardNumber}</code>\n🔑 <code>${d.cardSerial}</code>\n📞 ${d.phone}`;
     }
 
-    // ── Global State ──
-    let PRODUCTS = [];
-    let currentUserUID = null;
-    let currentUserName = '';
-    let currentUserBalance = 0;
-    let currentFilter = 'all';
-    let selectedProduct = null;
-    let selectedCarrier = '';
-    let selectedDenom = 0;
-    let isAdmin = false;
-    let balanceUnsub = null;
+    function dbPush(path,data){ 
+        const payload = {...data};
+        if (!payload.createdAt) payload.createdAt = Date.now();
+        return push(ref(db,path), payload); 
+    }
+    function fmt(n){ return (n||0).toLocaleString('vi-VN')+'đ'; }
+    function genCode(game){ const p={bloxfruit:'BF',lienquan:'LQ',ugphone:'UGP'}[game]||'DX'; return `${p}-${Date.now().toString(36).toUpperCase().slice(-5)}${Math.random().toString(36).toUpperCase().slice(2,5)}`; }
 
-    const fmt = v => (v||0).toLocaleString('vi-VN')+'đ';
-    const genCode = (prefix) => (prefix?prefix.substring(0,2).toUpperCase():'OR') + Math.random().toString(36).substring(2,8).toUpperCase();
-    const dbPush = (path,data) => push(ref(db,path),{...data,createdAt:Date.now()});
+    let PRODUCTS=[],currentFilter='all',selectedProduct=null,isAdmin=false;
+    let selectedCarrier='zing',selectedDenom=0;
+    let currentUserBalance=0,currentUserUID=null,currentUserName='';
+    let foundTargetUID=null,foundTargetBalance=0,balanceUnsub=null;
+    let ALL_ADMIN_ORDERS=[],adminOrderFilter='all';
+    let productsUnsub=null; // ✅ Track listener để không tạo duplicate
 
-    // ── Balance Listener ──
+    // ── Balance ──
     function listenBalance(uid){
-        if(balanceUnsub) balanceUnsub();
-        balanceUnsub = onValue(ref(db,`users/${uid}/balance`),snap=>{
-            currentUserBalance = snap.exists() ? (snap.val()||0) : 0;
+        if(balanceUnsub){balanceUnsub();balanceUnsub=null;}
+        balanceUnsub=onValue(ref(db,`users/${uid}/balance`),snap=>{
+            currentUserBalance=snap.exists()?(snap.val()||0):0;
             updateBalanceUI();
-            if(selectedProduct) updatePurchaseStatus();
         });
     }
     function updateBalanceUI(){
@@ -905,12 +1076,21 @@
         document.getElementById('productsGrid').innerHTML=Array(6).fill(0).map(()=>`<div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line" style="height:9px;width:40%"></div><div class="skeleton-line" style="height:14px;width:85%"></div><div class="skeleton-line" style="height:11px;width:70%"></div><div class="skeleton-line" style="height:26px;width:50%;margin-top:12px"></div><div class="skeleton-line" style="height:34px;width:100%;margin-top:7px;border-radius:7px"></div></div></div>`).join('');
     }
 
-    // ── Load Products ──
+    // ── Load Products ── (Theo dõi real-time tự cập nhật)
     function loadProducts(){
+        // Nếu đã có listener, không cần tạo mới nhưng vẫn render lại để đảm bảo
+        if(productsUnsub){ 
+            renderProducts();
+            return; 
+        }
         showSkeleton();
-        onValue(query(ref(db,'products'),orderByChild('createdAt')),snap=>{
+        productsUnsub = onValue(query(ref(db,'products'),orderByChild('createdAt')),snap=>{
             PRODUCTS=[];
-            if(snap.exists()) snap.forEach(c=>PRODUCTS.unshift({_key:c.key,...c.val()}));
+            if(snap.exists()) {
+                snap.forEach(c => {
+                    PRODUCTS.unshift({_key:c.key, ...c.val()});
+                });
+            }
             renderProducts();
         });
     }
@@ -927,7 +1107,15 @@
             const img=p.image?`<img class="card-img-photo" src="${p.image}" alt="${p.name}" onerror="this.style.display='none'">`:`<span style="position:relative;z-index:1;font-size:50px">${p.icon||'🎮'}</span>`;
             const c=document.createElement('div');
             c.className='product-card';
-            c.innerHTML=`<div class="card-img card-img-${p.game}" style="${p.image?'padding:0;background:var(--bg3)':''}">${p.badge?`<div class="card-badge ${bMap[p.badge]||'badge-hot'}">${p.badge}</div>`:''}<div class="stock-dot ${sc}"></div>${img}</div>
+            
+            // Nút xóa chỉ hiện cho Admin
+            const adminActions = isAdmin ? `
+                <div class="admin-card-actions" style="position:absolute;top:8px;right:8px;z-index:10;display:flex;gap:5px;">
+                    <button onclick="window.handleDeleteProduct('${p._key}', '${p.name}')" style="background:rgba(255,59,92,0.8);border:none;color:white;padding:5px 8px;border-radius:6px;font-size:10px;cursor:pointer;backdrop-filter:blur(4px);transition:all 0.2s;" onmouseover="this.style.background='var(--danger)'" onmouseout="this.style.background='rgba(255,59,92,0.8)'">🗑️ Xóa</button>
+                </div>
+            ` : '';
+
+            c.innerHTML=`${adminActions}<div class="card-img card-img-${p.game}" style="${p.image?'padding:0;background:var(--bg3)':''}">${p.badge?`<div class="card-badge ${bMap[p.badge]||'badge-hot'}">${p.badge}</div>`:''}<div class="stock-dot ${sc}"></div>${img}</div>
 <div class="card-body"><div class="card-game-tag tag-${p.game}">${gLabel[p.game]||p.game}</div><div class="card-title">${p.name}</div><p style="font-size:11px;color:var(--muted);margin-bottom:8px">${p.desc||''}</p>
 <div class="card-meta"><span>📦 Còn: <strong style="color:${p.remaining<=2?'var(--orange)':'var(--text)'}">${p.remaining||0}</strong></span><span>✅ ${(p.sold||0).toLocaleString('vi-VN')} đã bán</span></div>
 <div class="card-price-row"><div><span class="card-price">${dp.toLocaleString('vi-VN')}đ</span>${p.discount>0?`<span class="card-original">${p.price.toLocaleString('vi-VN')}đ</span>`:''}</div>${p.discount>0?`<span class="card-discount">-${p.discount}%</span>`:''}</div>
@@ -936,35 +1124,40 @@
         });
     }
 
-    // ── Purchase Status Update ──
-    function updatePurchaseStatus(){
-        if(!selectedProduct) return;
-        const dp=Math.floor(selectedProduct.price*(1-(selectedProduct.discount||0)/100));
+    // ── Payment change ──
+    window.onPaymentChange=function(){
+        const pay=document.getElementById('pPayment').value;
+        const box=document.getElementById('purchaseBalanceBox');
         const statusEl=document.getElementById('purchaseBalanceStatus');
         const hintEl=document.getElementById('purchaseBalanceHint');
         const banner=document.getElementById('insufficientBanner');
         const btn=document.getElementById('purchaseSubmitBtn');
-        
-        if(!currentUserUID){
+        banner.classList.remove('show');
+        if(pay==='balance'&&selectedProduct&&currentUserUID){
+            const dp=Math.floor(selectedProduct.price*(1-(selectedProduct.discount||0)/100));
+            box.classList.add('show');
+            if(currentUserBalance>=dp){
+                statusEl.innerHTML=`<div class="bb-amount">${fmt(currentUserBalance)}</div>`;
+                hintEl.innerHTML=`<span style="font-size:11px;color:var(--green)">✓ Đủ tiền</span>`;
+                btn.disabled=false;btn.style.opacity='1';
+            } else {
+                const miss=dp-currentUserBalance;
+                document.getElementById('missingAmount').textContent=fmt(miss);
+                statusEl.innerHTML=`<div class="bb-insufficient">${fmt(currentUserBalance)}</div>`;
+                hintEl.innerHTML=`<div style="font-size:11px;color:var(--danger)">❌ Thiếu ${fmt(miss)}</div>`;
+                banner.classList.add('show');
+                btn.disabled=true;btn.style.opacity='0.5';
+            }
+        } else if(pay==='balance'&&!currentUserUID){
+            box.classList.add('show');
             statusEl.innerHTML=`<div style="font-size:12px;color:var(--danger)">Chưa đăng nhập!</div>`;
             hintEl.innerHTML=`<span class="bb-topup-hint" onclick="closeModal('purchaseModal');openModal('authModal')">→ Đăng nhập</span>`;
             btn.disabled=true;btn.style.opacity='0.5';
-            return;
-        }
-
-        statusEl.innerHTML=`<div class="bb-amount">${fmt(currentUserBalance)}</div>`;
-        if(currentUserBalance >= dp){
-            hintEl.innerHTML=`<span style="font-size:11px;color:var(--green)">✓ Đủ tiền</span>`;
-            banner.classList.remove('show');
-            btn.disabled=false;btn.style.opacity='1';
         } else {
-            const miss=dp-currentUserBalance;
-            document.getElementById('missingAmount').textContent=fmt(miss);
-            hintEl.innerHTML=`<div style="font-size:11px;color:var(--danger)">❌ Thiếu ${fmt(miss)}</div>`;
-            banner.classList.add('show');
-            btn.disabled=true;btn.style.opacity='0.5';
+            box.classList.remove('show');
+            btn.disabled=false;btn.style.opacity='1';
         }
-    }
+    };
 
     // ── Buy Product ──
     window._buyProduct=function(key){
@@ -974,96 +1167,74 @@
         document.getElementById('purchaseProductName').textContent=selectedProduct.name;
         document.getElementById('purchaseProductPrice').textContent=fmt(dp);
         document.getElementById('purchaseAlert').className='modal-alert';
-        
+        document.getElementById('purchaseBalanceBox').classList.remove('show');
+        document.getElementById('insufficientBanner').classList.remove('show');
+        document.getElementById('purchaseSubmitBtn').disabled=false;
+        document.getElementById('purchaseSubmitBtn').style.opacity='1';
         const uf=document.getElementById('ugphoneField');
         if(selectedProduct.game==='ugphone') uf.classList.add('show');
         else{uf.classList.remove('show');document.getElementById('pUGPhoneID').value='';}
-        
         const user=auth.currentUser;
         if(user){document.getElementById('pEmail').value=user.email||'';document.getElementById('pName').value=user.displayName||'';}
-        
-        updatePurchaseStatus();
+        document.getElementById('pPayment').value='';
         openModal('purchaseModal');
     };
 
     // ── Purchase ──
     window.handlePurchase=async function(){
         const name=document.getElementById('pName').value.trim(),phone=document.getElementById('pPhone').value.trim(),
-              email=document.getElementById('pEmail').value.trim(),
+              email=document.getElementById('pEmail').value.trim(),payment=document.getElementById('pPayment').value,
               note=document.getElementById('pNote').value.trim(),ugphoneID=document.getElementById('pUGPhoneID').value.trim();
-        const alertEl=document.getElementById('purchaseAlert');
-        
-        if(!name||!phone||!email){showAlert(alertEl,'error','Vui lòng điền đầy đủ thông tin!');return;}
+        const alertEl=document.getElementById('purchaseAlert'),banner=document.getElementById('insufficientBanner');
+        if(!name||!phone||!email||!payment){showAlert(alertEl,'error','Vui lòng điền đầy đủ!');return;}
         if(selectedProduct.game==='ugphone'&&!ugphoneID){showAlert(alertEl,'error','Vui lòng nhập ID UGPhone!');return;}
-        
         const dp=Math.floor(selectedProduct.price*(1-(selectedProduct.discount||0)/100));
-        if(!currentUserUID){showAlert(alertEl,'error','Bạn chưa đăng nhập!');return;}
-        if(currentUserBalance < dp){showAlert(alertEl,'error',`❌ Số dư không đủ! Thiếu ${fmt(dp-currentUserBalance)}.`);return;}
-        
-        showAlert(alertEl,'info','<span class="loading-dot"></span> Đang xử lý thanh toán...');
+        if(payment==='balance'){
+            if(!currentUserUID){showAlert(alertEl,'error','Bạn chưa đăng nhập!');return;}
+            if(currentUserBalance<dp){
+                document.getElementById('missingAmount').textContent=fmt(dp-currentUserBalance);
+                banner.classList.add('show');
+                showAlert(alertEl,'error',`❌ Số dư không đủ! Có ${fmt(currentUserBalance)}, thiếu ${fmt(dp-currentUserBalance)}.`);
+                return;
+            }
+        }
+        showAlert(alertEl,'info','<span class="loading-dot"></span> Đang xử lý...');
         try {
             const orderCode=genCode(selectedProduct.game);
-            // Trừ tiền bằng transaction để đảm bảo an toàn
-            const res=await runTransaction(ref(db,`users/${currentUserUID}/balance`),cur=>{
-                const b=cur||0;
-                if(b<dp) return undefined; // Hủy nếu không đủ tiền
-                return b-dp;
-            });
-            
-            if(!res.committed){showAlert(alertEl,'error','❌ Thanh toán thất bại. Vui lòng thử lại!');return;}
-            const finalBalance=res.snapshot.val()||0;
-
-            const orderData={
-                orderCode,productKey:selectedProduct._key,productName:selectedProduct.name,
-                game:selectedProduct.game,price:dp,originalPrice:selectedProduct.price,
-                discount:selectedProduct.discount||0,customerName:name,customerPhone:phone,
-                customerEmail:email,paymentMethod:'balance',note,ugphoneID:ugphoneID||null,
-                userId:currentUserUID,paidWithBalance:true,status:'paid'
-            };
-            
+            let finalBalance=currentUserBalance;
+            if(payment==='balance'&&currentUserUID){
+                const res=await runTransaction(ref(db,`users/${currentUserUID}/balance`),cur=>{const b=cur||0;if(b<dp)return undefined;return b-dp;});
+                if(!res.committed){banner.classList.add('show');showAlert(alertEl,'error','❌ Số dư thay đổi. Vui lòng thử lại!');return;}
+                finalBalance=res.snapshot.val()||0;
+            }
+            const orderData={orderCode,productKey:selectedProduct._key,productName:selectedProduct.name,game:selectedProduct.game,price:dp,originalPrice:selectedProduct.price,discount:selectedProduct.discount||0,customerName:name,customerPhone:phone,customerEmail:email,paymentMethod:payment,note,ugphoneID:ugphoneID||null,userId:auth.currentUser?.uid||null,paidWithBalance:payment==='balance',status:payment==='balance'?'paid':'pending'};
             await dbPush('orders',orderData);
             await sendTg(tgOrder(orderData));
-            
-            // Discord Webhook for New Order
-            await sendDiscord({
-                title: '🛒 ĐƠN HÀNG MỚI (THANH TOÁN SỐ DƯ)',
-                color: 0x00D4FF,
-                fields: [
-                    { name: '🆔 Mã đơn', value: orderCode, inline: true },
-                    { name: '📦 Sản phẩm', value: selectedProduct.name, inline: true },
-                    { name: '💰 Giá tiền', value: fmt(dp), inline: true },
-                    { name: '👤 Khách hàng', value: name, inline: true },
-                    { name: '📧 Email', value: email, inline: true },
-                    { name: '📱 SĐT', value: phone, inline: true }
-                ],
-                timestamp: new Date().toISOString()
-            });
-
+            await sendDiscord(discordOrder(orderData));
             closeModal('purchaseModal');
             document.getElementById('successOrderCode').textContent=orderCode;
             document.getElementById('successProductName').textContent=`${selectedProduct.name} — ${fmt(dp)}`;
             const isUGP=selectedProduct.game==='ugphone';
             document.getElementById('ugphoneReminder').classList.toggle('show',isUGP);
             document.getElementById('ugphoneStep').style.display=isUGP?'flex':'none';
-            document.getElementById('successBalancePaid').style.display='block';
-            document.getElementById('successBalanceRemain').textContent=fmt(finalBalance);
-            
+            const bpd=document.getElementById('successBalancePaid');
+            if(payment==='balance'){bpd.style.display='block';document.getElementById('successBalanceRemain').textContent=fmt(finalBalance);}
+            else bpd.style.display='none';
             openModal('successModal');
-            showToast('🛒','Mua hàng thành công!');
+            showToast('🛒','Đặt hàng thành công!');
             ['pName','pPhone','pEmail','pNote','pUGPhoneID'].forEach(id=>document.getElementById(id).value='');
-            
-            // Tải lại log admin nếu đang mở
-            if(isAdmin) loadAdminOrders();
+            document.getElementById('pPayment').value='';
         } catch(e){showAlert(alertEl,'error','Lỗi: '+e.message);}
     };
 
-    // ── Order History (user) ──
+    // ── Order History (user) — FIX: load all + filter client-side ──
     window.openOrderHistory=function(){openModal('orderHistoryModal');loadUserOrders();};
     async function loadUserOrders(){
         const content=document.getElementById('orderHistoryContent');
         if(!currentUserUID){content.innerHTML=`<div class="order-history-empty"><div>🔐</div><p>Vui lòng đăng nhập.</p></div>`;return;}
         content.innerHTML=`<div style="text-align:center;padding:28px;color:var(--muted)"><span class="loading-dot"></span> Đang tải...</div>`;
         try{
+            // Load all orders and filter client-side (avoids Firebase index requirement)
             const snap=await get(ref(db,'orders'));
             const orders=[];
             if(snap.exists()){
@@ -1075,73 +1246,189 @@
             if(!orders.length){content.innerHTML=`<div class="order-history-empty"><div>📦</div><p>Bạn chưa có đơn hàng nào.</p></div>`;return;}
             const sLabel={pending:'Chờ xử lý',paid:'Đã thanh toán',done:'Hoàn thành',cancelled:'Đã hủy'};
             const sClass={pending:'status-pending',paid:'status-paid',done:'status-done',cancelled:'status-cancelled'};
-            const gIcon={bloxfruit:'🍎',lienquan:'⚔️',ugphone:'📱'};
-            content.innerHTML=orders.map(o=>`<div class="order-item"><div class="order-head"><div><div class="order-code">#${o.orderCode}</div><div class="order-date">${new Date(o.createdAt).toLocaleString('vi-VN')}</div></div><div class="order-status ${sClass[o.status]||'status-pending'}">${sLabel[o.status]||o.status}</div></div><div class="order-body"><div class="order-img">${gIcon[o.game]||'🎮'}</div><div class="order-info"><div class="order-name">${o.productName}</div><div class="order-price">${fmt(o.price)}</div><div style="font-size:11px;color:var(--muted);margin-top:4px">PTTT: Số dư</div></div></div></div>`).join('');
-        }catch(e){content.innerHTML=`<div class="order-history-empty"><div>❌</div><p>Lỗi tải dữ liệu.</p></div>`;}
+            const pLabel={balance:'Số dư',momo:'MoMo',zalopay:'ZaloPay',vietinbank:'VietinBank',vcb:'VCB',tcb:'TCB',napas:'Thẻ ATM',card:'Thẻ Cào'};
+            content.innerHTML=`<div style="font-size:12px;color:var(--muted);margin-bottom:12px">Tổng: <strong style="color:var(--cyan)">${orders.length} đơn</strong></div>`
+                +orders.map(o=>`<div class="order-row"><div class="order-row-header"><div><div class="order-row-code">${o.orderCode||'—'}</div><div class="order-row-product">${o.productName||'—'}</div><div class="order-row-meta">💳 ${pLabel[o.paymentMethod]||o.paymentMethod||'—'} · ⏰ ${o.createdAt?new Date(o.createdAt).toLocaleDateString('vi-VN'):''}</div></div><div style="text-align:right"><div class="order-row-price">${fmt(o.price)}</div><span class="order-status ${sClass[o.status]||'status-pending'}">${sLabel[o.status]||'Chờ xử lý'}</span><div style="margin-top:5px"><button onclick="copyText('${o.orderCode}','Đã sao chép!')" style="background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2);color:var(--cyan);padding:3px 8px;border-radius:4px;font-size:10px;font-weight:700;cursor:pointer;font-family:'Barlow',sans-serif">📋 Copy</button></div></div></div></div>`).join('');
+        }catch(e){content.innerHTML=`<div class="order-history-empty"><div>⚠️</div><p>Lỗi: ${e.message}</p></div>`;}
     }
 
-    // ── Admin: Add Product ──
-    window.handleAddProduct=async function(){
-        const name=document.getElementById('aName').value.trim(),game=document.getElementById('aGame').value,desc=document.getElementById('aDesc').value.trim(),image=document.getElementById('aImage').value.trim(),price=parseInt(document.getElementById('aPrice').value),discount=parseInt(document.getElementById('aDiscount').value)||0,rem=parseInt(document.getElementById('aRemaining').value)||0,badge=document.getElementById('aBadge').value,icon=document.getElementById('aIcon').value.trim();
-        const alertEl=document.getElementById('adminAlert');
-        if(!name||!price){showAlert(alertEl,'error','Điền tên và giá!');return;}
-        showAlert(alertEl,'info','<span class="loading-dot"></span> Đang thêm...');
-        try{
-            await dbPush('products',{name,game,desc,image,price,discount,remaining:rem,badge,icon,sold:0});
-            showAlert(alertEl,'success','✓ Đã thêm sản phẩm!');
-            ['aName','aDesc','aImage','aPrice','aDiscount','aRemaining','aIcon'].forEach(id=>document.getElementById(id).value=(id==='aDiscount'||id==='aRemaining'?0:id==='aIcon'?'🎮':''));
-            document.getElementById('imgPreview').classList.remove('show');document.getElementById('imgPlaceholder').style.display='flex';
-            showToast('✨','Thêm sản phẩm thành công!');
-        }catch(e){showAlert(alertEl,'error','Lỗi: '+e.message);}
-    };
-
-    // ── Admin: Orders ──
-    let adminOrders=[];
+    // ── Admin: Load All Orders ──
     window.loadAdminOrders=async function(){
         const list=document.getElementById('adminOrdersList');
         list.innerHTML=`<div style="text-align:center;padding:20px;color:var(--muted)"><span class="loading-dot"></span> Đang tải...</div>`;
         try{
             const snap=await get(ref(db,'orders'));
-            adminOrders=[];
-            if(snap.exists()) snap.forEach(c=>adminOrders.unshift({_key:c.key,...c.val()}));
-            updateAdminStats();
-            renderAdminOrders(adminOrders);
-        }catch(e){list.innerHTML=`<div style="color:var(--danger);text-align:center">Lỗi: ${e.message}</div>`;}
+            ALL_ADMIN_ORDERS=[];
+            if(snap.exists()) snap.forEach(c=>ALL_ADMIN_ORDERS.unshift({_key:c.key,...c.val()}));
+            // Stats
+            const total=ALL_ADMIN_ORDERS.length;
+            const pending=ALL_ADMIN_ORDERS.filter(o=>o.status==='pending'||!o.status).length;
+            const done=ALL_ADMIN_ORDERS.filter(o=>o.status==='done').length;
+            document.getElementById('statTotal').textContent=total;
+            document.getElementById('statPending').textContent=pending;
+            document.getElementById('statDone').textContent=done;
+            renderAdminOrders();
+        }catch(e){list.innerHTML=`<div style="text-align:center;padding:20px;color:var(--danger)">Lỗi: ${e.message}</div>`;}
     };
-    function updateAdminStats(){
-        document.getElementById('statTotal').textContent=adminOrders.length;
-        document.getElementById('statPending').textContent=adminOrders.filter(o=>o.status==='pending'||o.status==='paid').length;
-        document.getElementById('statDone').textContent=adminOrders.filter(o=>o.status==='done').length;
+
+    function renderAdminOrders(){
+        const list=document.getElementById('adminOrdersList');
+        let orders=adminOrderFilter==='all'?ALL_ADMIN_ORDERS:ALL_ADMIN_ORDERS.filter(o=>{
+            if(adminOrderFilter==='pending') return !o.status||o.status==='pending';
+            return o.status===adminOrderFilter;
+        });
+        if(!orders.length){list.innerHTML=`<div style="text-align:center;padding:20px;color:var(--muted)">Không có đơn hàng nào.</div>`;return;}
+        const pLabel={balance:'💰',momo:'💜',zalopay:'💙',vietinbank:'🏦',vcb:'🏦',tcb:'🏦',napas:'💳',card:'🎴'};
+        list.innerHTML=orders.map(o=>`
+        <div class="admin-order-row" id="aorder-${o._key}">
+            <div class="admin-order-header">
+                <div><div style="font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;color:var(--cyan)">${o.orderCode||'—'}</div><div style="font-size:12px;font-weight:600;margin-top:2px">${o.productName||'—'}</div></div>
+                <div style="text-align:right"><div style="font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;color:var(--orange)">${fmt(o.price)}</div></div>
+            </div>
+            <div class="admin-order-info">
+                <span>👤 ${o.customerName||'—'}</span>
+                <span>📱 ${o.customerPhone||'—'}</span>
+                <span>${pLabel[o.paymentMethod]||'💳'} ${o.paymentMethod||'—'}</span>
+                <span>⏰ ${o.createdAt?new Date(o.createdAt).toLocaleString('vi-VN'):''}</span>
+                ${o.ugphoneID?`<span>📲 ID: ${o.ugphoneID}</span>`:''}
+                ${o.note?`<span>📝 ${o.note}</span>`:''}
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+                <select class="status-select" onchange="updateOrderStatus('${o._key}',this.value)">
+                    <option value="pending" ${(!o.status||o.status==='pending')?'selected':''}>⏳ Chờ xử lý</option>
+                    <option value="paid" ${o.status==='paid'?'selected':''}>✅ Đã thanh toán</option>
+                    <option value="done" ${o.status==='done'?'selected':''}>🎉 Hoàn thành</option>
+                    <option value="cancelled" ${o.status==='cancelled'?'selected':''}>❌ Đã hủy</option>
+                </select>
+                <div style="display:flex;gap:6px">
+                    <button onclick="copyText('${o.orderCode}','Đã sao chép mã!')" class="copy-btn">📋 Mã</button>
+                    <button onclick="copyText('${o.customerPhone}','Đã sao chép SĐT!')" class="copy-btn">📱 SĐT</button>
+                </div>
+            </div>
+        </div>`).join('');
     }
-    function renderAdminOrders(list){
-        const el=document.getElementById('adminOrdersList');
-        if(!list.length){el.innerHTML=`<div style="text-align:center;padding:30px;color:var(--muted)">Không có đơn hàng nào.</div>`;return;}
-        const sLabel={pending:'Chờ xử lý',paid:'Đã thanh toán',done:'Hoàn thành',cancelled:'Đã hủy'};
-        const sClass={pending:'status-pending',paid:'status-paid',done:'status-done',cancelled:'status-cancelled'};
-        el.innerHTML=`<div class="admin-table-wrapper"><table class="admin-table"><thead><tr><th>Mã Đơn</th><th>Khách Hàng</th><th>Sản Phẩm</th><th>Giá</th><th>Trạng Thái</th><th>Thao Tác</th></tr></thead><tbody>` + 
-            list.map(o=>`<tr><td><div style="font-weight:700;color:var(--cyan)">${o.orderCode}</div><div style="font-size:10px;color:var(--muted)">${new Date(o.createdAt).toLocaleString('vi-VN')}</div></td><td><div style="font-weight:600">${o.customerName}</div><div style="font-size:11px;color:var(--muted)">${o.customerPhone}</div></td><td><div style="font-weight:600">${o.productName}</div><div style="font-size:11px;color:var(--muted)">${o.game}</div></td><td><div style="color:var(--orange);font-weight:700">${fmt(o.price)}</div><div style="font-size:10px;color:var(--muted)">Số dư</div></td><td><span class="order-status ${sClass[o.status]||'status-pending'}">${sLabel[o.status]||o.status}</span></td><td><div class="aoc-actions">${o.status!=='done'&&o.status!=='cancelled'?`<button class="btn-action btn-done" onclick="updateOrderStatus('${o._key}','done')">Xong</button><button class="btn-action btn-cancel" onclick="updateOrderStatus('${o._key}','cancelled')">Hủy</button>`:''}</div></td></tr>`).join('') + `</tbody></table></div>`;
-    }
-    window.filterAdminOrders=function(status,btn){
+
+    window.filterAdminOrders=function(filter,el){
+        adminOrderFilter=filter;
         document.querySelectorAll('.admin-filter-btn').forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        if(status==='all') renderAdminOrders(adminOrders);
-        else renderAdminOrders(adminOrders.filter(o=>o.status===status));
+        el.classList.add('active');
+        renderAdminOrders();
     };
+
     window.updateOrderStatus=async function(key,status){
         try{
             await set(ref(db,`orders/${key}/status`),status);
-            showToast('✅','Đã cập nhật trạng thái!');
-            loadAdminOrders();
-        }catch(e){alert('Lỗi: '+e.message);}
+            // Update local
+            const o=ALL_ADMIN_ORDERS.find(x=>x._key===key);
+            if(o) o.status=status;
+            // Update stats
+            const pending=ALL_ADMIN_ORDERS.filter(o=>o.status==='pending'||!o.status).length;
+            const done=ALL_ADMIN_ORDERS.filter(o=>o.status==='done').length;
+            document.getElementById('statPending').textContent=pending;
+            document.getElementById('statDone').textContent=done;
+            showToast('✅',`Đã cập nhật trạng thái đơn!`);
+        }catch(e){showToast('❌','Lỗi cập nhật: '+e.message);}
+    };
+
+    // ── Card submit ──
+    window.handleCardSubmit=async function(){
+        const num=document.getElementById('card-number').value.trim(),ser=document.getElementById('card-serial').value.trim(),ph=document.getElementById('card-phone').value.trim();
+        const alertEl=document.getElementById('cardSubmitAlert');
+        if(!selectedCarrier){showAlert(alertEl,'error','Chọn nhà mạng!');return;}
+        if(!selectedDenom){showAlert(alertEl,'error','Chọn mệnh giá!');return;}
+        if(!num){showAlert(alertEl,'error','Nhập số thẻ!');return;}
+        if(!ser){showAlert(alertEl,'error','Nhập seri!');return;}
+        if(!ph){showAlert(alertEl,'error','Nhập SĐT!');return;}
+        showAlert(alertEl,'info','<span class="loading-dot"></span> Đang nộp thẻ...');
+        try{
+            const receive=Math.floor(selectedDenom*0.81);
+            const d={carrier:selectedCarrier,denom:selectedDenom,receiveAmount:receive,cardNumber:num,cardSerial:ser,phone:ph,userId:currentUserUID||null};
+            await dbPush('card_topups',d);
+            await sendTg(tgCard(d));
+            await sendDiscord(discordCard({...d, email: auth.currentUser?.email||'unknown'}));
+            showAlert(alertEl,'success',`✓ Đã gửi! Nhận ${fmt(receive)} sau khi admin kiểm tra.`);
+            ['card-number','card-serial','card-phone'].forEach(id=>document.getElementById(id).value='');
+            showToast('🎴','Nộp thẻ thành công!');
+        }catch(e){showAlert(alertEl,'error','Lỗi: '+e.message);}
+    };
+
+    // ── Contact ──
+    window.handleContact=async function(){
+        const name=document.getElementById('ctName').value.trim(),phone=document.getElementById('ctPhone').value.trim(),email=document.getElementById('ctEmail').value.trim(),msg=document.getElementById('ctMessage').value.trim();
+        const alertEl=document.getElementById('contactAlert');
+        if(!name||!phone||!email||!msg){showAlert(alertEl,'error','Điền đầy đủ!');return;}
+        showAlert(alertEl,'info','<span class="loading-dot"></span> Đang gửi...');
+        try{await dbPush('contacts',{name,phone,email,message:msg});showAlert(alertEl,'success','✓ Đã gửi!');['ctName','ctPhone','ctEmail','ctMessage'].forEach(id=>document.getElementById(id).value='');showToast('📨','Đã gửi tin nhắn!');setTimeout(()=>closeModal('contactModal'),1800);}
+        catch(e){showAlert(alertEl,'error','Lỗi: '+e.message);}
+    };
+
+    // ── Admin: Add Product ──
+    // ✅ FIX: Đảm bảo sản phẩm hiển thị ngay sau khi thêm
+    window.handleAddProduct=async function(){
+        const name=document.getElementById('aName').value.trim();
+        const game=document.getElementById('aGame').value;
+        const desc=document.getElementById('aDesc').value.trim();
+        const image=document.getElementById('aImage').value.trim();
+        const price=parseInt(document.getElementById('aPrice').value);
+        const discount=parseInt(document.getElementById('aDiscount').value)||0;
+        const remaining=parseInt(document.getElementById('aRemaining').value)||0;
+        const badge=document.getElementById('aBadge').value;
+        const icon=document.getElementById('aIcon').value.trim()||'🎮';
+        const alertEl=document.getElementById('adminAlert');
+
+        if(!name||!game||!price||isNaN(price)){
+            showAlert(alertEl,'error','Vui lòng điền Tên, chọn Game và nhập Giá!');
+            return;
+        }
+
+        showAlert(alertEl,'info','<span class="loading-dot"></span> Đang thêm sản phẩm...');
+        try{
+            // Thêm sản phẩm vào Firebase
+            await dbPush('products',{
+                name,
+                game,
+                desc,
+                image,
+                price,
+                discount,
+                remaining,
+                badge,
+                icon,
+                sold: 0,
+                createdAt: Date.now()
+            });
+            
+            // Cập nhật lại danh sách hiển thị nếu cần thiết (phòng trường hợp listener chưa trigger)
+            if (typeof renderProducts === 'function') {
+                renderProducts();
+            }
+
+            showAlert(alertEl,'success',`✓ Đã thêm sản phẩm "${name}" thành công!`);
+            
+            // Reset form
+            ['aName','aDesc','aImage','aPrice'].forEach(id=>document.getElementById(id).value='');
+            document.getElementById('aDiscount').value='0';
+            document.getElementById('aRemaining').value='';
+            document.getElementById('aBadge').value='';
+            document.getElementById('imgPreview').classList.remove('show');
+            document.getElementById('imgPlaceholder').style.display='flex';
+            
+            showToast('➕',`"${name}" đã thêm vào shop!`);
+            setTimeout(()=>closeModal('adminModal'), 1800);
+        }catch(e){
+            console.error("Lỗi khi thêm sản phẩm:", e);
+            showAlert(alertEl,'error','Lỗi Firebase: '+e.message);
+        }
     };
 
     // ── Admin: Find User ──
-    let foundTargetUID=null,foundTargetBalance=0;
     window.findUserByEmail=async function(){
-        const email=document.getElementById('topupTargetEmail').value.trim(),alertEl=document.getElementById('adminTopupAlert'),box=document.getElementById('userFoundBox');
+        const email=document.getElementById('topupTargetEmail').value.trim();
+        const alertEl=document.getElementById('adminTopupAlert'),box=document.getElementById('userFoundBox');
         if(!email){showAlert(alertEl,'error','Nhập email!');return;}
         showAlert(alertEl,'info','<span class="loading-dot"></span> Đang tìm...');box.classList.remove('show');foundTargetUID=null;foundTargetBalance=0;
         try{
+            // Load all users and filter client-side (avoids index requirement)
             const snap=await get(ref(db,'users'));
             let found=false;
             if(snap.exists()){
@@ -1187,23 +1474,10 @@
             const balRef=ref(db,`users/${foundTargetUID}/balance`);let nb;
             if(type==='set'){nb=amount;await set(balRef,nb);}
             else{const r=await runTransaction(balRef,cur=>{const b=cur||0;if(type==='add')return b+amount;if(type==='sub')return Math.max(0,b-amount);return b;});nb=r.snapshot.val()||0;}
-            await dbPush('balance_logs',{targetUID:foundTargetUID,targetEmail:document.getElementById('topupTargetEmail').value.trim(),adminUID:auth.currentUser?.uid,type,amount,newBalance:nb,reason});
-            
-            // Discord Webhook for Topup
-            if (type === 'add') {
-                await sendDiscord({
-                    title: '💰 THÔNG BÁO NẠP TIỀN THÀNH CÔNG',
-                    color: 0x00FF88,
-                    fields: [
-                        { name: '📧 Email khách', value: document.getElementById('topupTargetEmail').value.trim(), inline: true },
-                        { name: '💵 Số tiền', value: fmt(amount), inline: true },
-                        { name: '📝 Lý do', value: reason || 'Nạp tiền hệ thống', inline: false },
-                        { name: '💳 Số dư mới', value: fmt(nb), inline: true }
-                    ],
-                    timestamp: new Date().toISOString()
-                });
-            }
-
+            const targetEmail=document.getElementById('topupTargetEmail').value.trim();
+            await dbPush('balance_logs',{targetUID:foundTargetUID,targetEmail,adminUID:auth.currentUser?.uid,type,amount,newBalance:nb,reason});
+            // ✅ Discord notification khi admin cộng tiền
+            if(type==='add') await sendDiscord(discordTopup(targetEmail, amount, reason, nb));
             showAlert(alertEl,'success',`✓ Cập nhật! Số dư mới: ${fmt(nb)}`);
             document.getElementById('foundUserBalance').textContent=fmt(nb);
             showToast('💰','Cập nhật số dư OK!');loadTopupHistory();
@@ -1233,6 +1507,22 @@
 
     window.previewImg=function(url){const img=document.getElementById('imgPreview'),ph=document.getElementById('imgPlaceholder');if(url&&url.startsWith('http')){img.src=url;img.classList.add('show');ph.style.display='none';}else{img.classList.remove('show');ph.style.display='flex';}};
 
+    // ── Admin: Delete Product ──
+    window.handleDeleteProduct = async function(key, name) {
+        if (!isAdmin) return;
+        if (!confirm(`Bạn có chắc chắn muốn xóa vật phẩm "${name}" không? Thao tác này không thể hoàn tác!`)) return;
+        
+        try {
+            // Xóa khỏi Firebase
+            await remove(ref(db, `products/${key}`));
+            showToast('🗑️', `Đã xóa vật phẩm "${name}"`);
+            // onValue listener sẽ tự động cập nhật lại PRODUCTS và gọi renderProducts()
+        } catch (e) {
+            console.error("Lỗi khi xóa sản phẩm:", e);
+            showToast('❌', 'Lỗi khi xóa: ' + e.message);
+        }
+    };
+
     // ── Auth state ──
     onAuthStateChanged(auth,user=>{
         const display=document.getElementById('userDisplay'),loginBtn=document.getElementById('loginBtn'),fab=document.getElementById('adminFab');
@@ -1245,7 +1535,8 @@
             display.classList.add('show');loginBtn.style.display='none';
             topupBtn.classList.add('show');orderBtn.classList.add('show');
             mobileTopup.style.display='';mobileOrder.style.display='';
-            mobileAuth.style.display='none';mobileLogout.style.display='';
+            if(mobileAuth) mobileAuth.style.display='none';
+            if(mobileLogout) mobileLogout.style.display='';
             isAdmin=(user.email==='thanhson1612208@gmail.com');
             if(isAdmin) fab.classList.add('show');
             listenBalance(user.uid);
@@ -1255,7 +1546,8 @@
             display.classList.remove('show');loginBtn.style.display='';
             topupBtn.classList.remove('show');orderBtn.classList.remove('show');
             mobileTopup.style.display='none';mobileOrder.style.display='none';
-            mobileAuth.style.display='';mobileLogout.style.display='none';
+            if(mobileAuth) mobileAuth.style.display='';
+            if(mobileLogout) mobileLogout.style.display='none';
             fab.classList.remove('show');isAdmin=false;
             if(balanceUnsub){balanceUnsub();balanceUnsub=null;}
             updateBalanceUI();
@@ -1285,44 +1577,8 @@
     };
     window.handleLogout=async function(){await signOut(auth);currentUserUID=null;currentUserBalance=0;showToast('👋','Đã đăng xuất!');};
 
-    window.selectCarrier=function(c,el){selectedCarrier=c;document.querySelectorAll('.carrier-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');document.getElementById('cardAlert').className='modal-alert';};
-    window.selectDenom=function(d,el){selectedDenom=d;document.querySelectorAll('.denom-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');const r=Math.floor(d*0.81);document.getElementById('receive-amount-val').textContent=fmt(r);document.getElementById('denom-val').textContent=fmt(d);document.getElementById('receive-box').style.display='flex';document.getElementById('cardAlert').className='modal-alert';};
-
-    // ── Topup Card ──
-    window.handleTopupCard=async function(){
-        const alertEl=document.getElementById('cardAlert'),carrier=selectedCarrier,denom=selectedDenom,code=document.getElementById('cardCode').value.trim(),seri=document.getElementById('cardSeri').value.trim();
-        if(!carrier){showAlert(alertEl,'error','Chọn loại thẻ!');return;}
-        if(!denom){showAlert(alertEl,'error','Chọn mệnh giá!');return;}
-        if(!code||!seri){showAlert(alertEl,'error','Nhập mã thẻ và số seri!');return;}
-        if(code.length<10||seri.length<10){showAlert(alertEl,'error','Mã thẻ hoặc seri không hợp lệ!');return;}
-        
-        showAlert(alertEl,'info','<span class="loading-dot"></span> Đang xử lý...');
-        try{
-            const cardData={carrier,denom,code:code.substring(0,4)+'***'+code.substring(code.length-4),seri:seri.substring(0,4)+'***'+seri.substring(seri.length-4),fullCode:code,fullSeri:seri,userId:currentUserUID,userEmail:auth.currentUser?.email||'unknown',status:'pending',createdAt:Date.now()};
-            await dbPush('card_topups',cardData);
-            
-            // Discord Webhook for Card Topup
-            await sendDiscord({
-                title: '🎴 NẠP THẺ CÀO MỚI (CHỜ DUYỆT)',
-                color: 0xFF6B2B,
-                fields: [
-                    { name: '📧 Email khách', value: auth.currentUser?.email||'unknown', inline: true },
-                    { name: ' Nhà mạng', value: carrier, inline: true },
-                    { name: ' Mệnh giá', value: fmt(denom), inline: true },
-                    { name: ' Mã thẻ', value: code.substring(0,4)+'***'+code.substring(code.length-4), inline: true },
-                    { name: ' Số seri', value: seri.substring(0,4)+'***'+seri.substring(seri.length-4), inline: true },
-                    { name: ' Thời gian', value: new Date().toLocaleString('vi-VN'), inline: false }
-                ],
-                timestamp: new Date().toISOString()
-            });
-            
-            showAlert(alertEl,'success','✓ Đã gửi thẻ! Admin sẽ duyệt trong 1-3 phút.');
-            showToast('🎴','Nạp thẻ đang chờ duyệt!');
-            document.getElementById('cardCode').value='';document.getElementById('cardSeri').value='';
-            document.querySelectorAll('.carrier-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.denom-btn').forEach(b=>b.classList.remove('active'));selectedCarrier='';selectedDenom=0;document.getElementById('receive-box').style.display='none';
-            setTimeout(()=>closeModal('topupModal'),2000);
-        }catch(e){showAlert(alertEl,'error','Lỗi: '+e.message);}
-    };
+    window.selectCarrier=function(c,el){selectedCarrier=c;document.querySelectorAll('.carrier-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');};
+    window.selectDenom=function(d,el){selectedDenom=d;document.querySelectorAll('.denom-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');const r=Math.floor(d*0.81);document.getElementById('receive-amount-val').textContent=fmt(r);document.getElementById('denom-val').textContent=fmt(d);document.getElementById('receive-box').style.display='flex';};
 
     window.setFilter=function(f,el){currentFilter=f;document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderProducts();};
     window.setFilterBtn=function(f){currentFilter=f;document.querySelectorAll('.tab-btn').forEach(b=>{b.classList.remove('active');if(b.getAttribute('onclick')?.includes(f))b.classList.add('active');});renderProducts();document.getElementById('products').scrollIntoView({behavior:'smooth'});};
